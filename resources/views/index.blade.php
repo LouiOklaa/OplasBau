@@ -48,7 +48,7 @@
         <div class="logo-container d-flex align-items-center">
             <a href="index.html" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="assets/img/logo.svg" alt="" class="logo-img">
+                <img src="{{ URL::asset('assets/img/logo.svg') }}" alt="" class="logo-img">
             </a>
         </div>
 
@@ -58,31 +58,16 @@
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                    <li><a href="index.html" class="active">Startseite</a></li>
+                    <li class="dropdown"><a href="#"><span>Dienstleistungen</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                        class="bi bi-chevron-down dropdown-indicator"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                    <li><a href="#">Deep Dropdown 4</a></li>
-                                    <li><a href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
                             <li><a href="#">Dropdown 4</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="projects.html">Projekte</a></li>
+                    <li><a href="about.html">Über uns</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
                 </ul>
             </nav>
         </div><!-- .navbar-container -->
@@ -97,10 +82,9 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
-            <h2 data-aos="fade-down">Welcome to <span>UpConstruction</span></h2>
-            <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h2 data-aos="fade-down"><span style="color: var(--color-primary)">Willkommen bei</span><br><span>OPLAS BAU</span></h2>
+            <p data-aos="fade-up">Ihrem Experten für hochwertige Bauleistungen!
+                Unsere Firma bietet Ihnen professionelle Dienstleistungen im Bereich Trockenbau, Parkett, Laminat, Fliesen, Gipskarton und Malerarbeiten. Mit langjähriger Erfahrung und einem qualifizierten Team verwirklichen wir Ihre Bauwünsche bis ins kleinste Detail.</p>
             <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
           </div>
         </div>
@@ -138,20 +122,15 @@
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
             <div class="content">
-              <h3>Minus hic non reiciendis ea possimus at quia.</h3>
-              <p>Rem id rerum. Debitis deserunt quidem delectus expedita ducimus dolor. Aut iusto ipsa. Eos ipsum nobis
-                ipsa soluta itaque perspiciatis fuga ipsum perspiciatis. Eum amet fugiat totam nisi possimus ut delectus
-                dicta.
-              <p>Aliquam velit deserunt autem. Inventore et saepe. Tenetur suscipit eligendi labore culpa eos. Deserunt
-                porro magni qui necessitatibus dolorem at animi cupiditate.</p>
+              <h3>Ihr Projekt ist unsere Leidenschaft von der Planung bis zur Fertigstellung!</h3>
+              <p>Jedes Bauprojekt beginnt mit einer Vision – und wir sind hier, um sie Wirklichkeit werden zu lassen. Ob es sich um Trockenbau, Parkett, Laminat, Fliesen, Gipskarton oder Malerarbeiten handelt – unser erfahrenes Team begleitet Sie bei jedem Schritt des Weges, von der ersten Planung bis zur letzten Feinabstimmung. Wir legen höchsten Wert auf Qualität, Präzision und Ihre Zufriedenheit. Kontaktieren Sie uns und lassen Sie uns gemeinsam die Räume schaffen, die Ihren Vorstellungen und Wünschen entsprechen!
             </div>
           </div>
 
           <div class="col-lg-5" data-aos="fade">
             <form action="forms/quote.php" method="post" class="php-email-form">
-              <h3>Get a quote</h3>
-              <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero
-                park flows.</p>
+              <h3>Fragen Sie gerne an!</h3>
+              <p>Wir sind für Sie da – lassen Sie uns wissen, wie wir helfen können!</p>
               <div class="row gy-3">
 
                 <div class="col-md-12">
@@ -159,15 +138,15 @@
                 </div>
 
                 <div class="col-md-12 ">
-                  <input type="email" class="form-control" name="email" placeholder="Email" required>
+                  <input type="email" class="form-control" name="email" placeholder="E-Mail" required>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+                  <input type="text" class="form-control" name="phone" placeholder="Telefonnummer" required>
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                  <textarea class="form-control" name="message" rows="6" placeholder="Ihr Nachricht" required></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
@@ -175,7 +154,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
 
-                  <button type="submit">Get a quote</button>
+                  <button type="submit">Senden</button>
                 </div>
 
               </div>
@@ -187,188 +166,165 @@
       </div>
     </section><!-- End Get Started Section -->
 
-    <!-- ======= Constructions Section ======= -->
-    <section id="constructions" class="constructions">
-      <div class="container" data-aos="fade-up">
+      <!-- ======= Features Section ======= -->
+      <section id="features" class="features">
+          <div class="container" data-aos="fade-up">
 
-        <div class="section-header">
-          <h2>Constructions</h2>
-          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem
-            dolore earum</p>
-        </div>
+              <ul class="nav nav-tabs row  g-2 d-flex">
 
-        <div class="row gy-4">
+                  <li class="nav-item col-3">
+                      <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+                          <h4>Hohe Qualität</h4>
+                      </a>
+                  </li><!-- End tab nav item -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-1.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Eligendi omnis sunt veritatis.</h4>
-                    <p>Fuga in dolorum et iste et culpa. Commodi possimus nesciunt modi voluptatem placeat deleniti
-                      adipisci. Cum delectus doloribus non veritatis. Officia temporibus illo magnam. Dolor eos et.</p>
-                  </div>
-                </div>
+                  <li class="nav-item col-3">
+                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+                          <h4>Vollständige Sicherheit</h4>
+                      </a><!-- End tab nav item -->
+
+                  <li class="nav-item col-3">
+                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
+                          <h4>Umfangreiche Erfahrung</h4>
+                      </a>
+                  </li><!-- End tab nav item -->
+
+                  <li class="nav-item col-3">
+                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
+                          <h4>Präzision in der Arbeit</h4>
+                      </a>
+                  </li><!-- End tab nav item -->
+
+              </ul>
+
+              <div class="tab-content">
+
+                  <div class="tab-pane active show" id="tab-1">
+                      <div class="row">
+                          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
+                               data-aos="fade-up" data-aos-delay="100">
+                              <h3>Qualität, die begeistert</h3>
+                              <p class="fst-italic">
+                                  Wir bei OPLAS BAU gewährleisten die Umsetzung von Projekten nach den höchsten Qualitätsstandards.
+                              </p>
+                              <ul>
+                                  <li><i class="bi bi-check2-all"></i> Unser geschultes Team sorgt dafür, dass jedes Projekt präzise ausgeführt wird.</li>
+                                  <li><i class="bi bi-check2-all"></i> Wir verwenden hochwertige Baustoffe, um Haltbarkeit zu gewährleisten.</li>
+                                  <li><i class="bi bi-check2-all"></i> Wir überwachen kontinuierlich den Fortschritt der Arbeiten, um die Qualität sicherzustellen.</li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                              <img src="assets/img/features-1.jpg" alt="" class="img-fluid">
+                          </div>
+                      </div>
+                  </div><!-- End tab content item -->
+
+                  <div class="tab-pane" id="tab-2">
+                      <div class="row">
+                          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                              <h3>Sicherheit steht an erster Stelle</h3>
+                              <p class="fst-italic">
+                                  Die Sicherheit der Mitarbeiter und der Baustelle hat bei OPLAS BAU oberste Priorität.
+                              </p>
+                              <ul>
+                                  <li><i class="bi bi-check2-all"></i> Wir befolgen strenge Sicherheitsvorkehrungen in allen unseren Projekten.</li>
+                                  <li><i class="bi bi-check2-all"></i> Unser Team wird kontinuierlich in Sicherheitsverfahren geschult.</li>
+                                  <li><i class="bi bi-check2-all"></i> Wir verwenden moderne Ausrüstung, um eine sichere Arbeitsumgebung zu gewährleisten.</li>
+
+                              </ul>
+                          </div>
+                          <div class="col-lg-6 order-1 order-lg-2 text-center">
+                              <img src="assets/img/features-2.jpg" alt="" class="img-fluid">
+                          </div>
+                      </div>
+                  </div><!-- End tab content item -->
+
+                  <div class="tab-pane" id="tab-3">
+                      <div class="row">
+                          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                              <h3>Erfahrung, die zählt</h3>
+                              <p class="fst-italic">
+                                  Dank unserer langjährigen Erfahrung bieten wir innovative und effiziente Lösungen für Bauprojekte.
+                              </p>
+                              <ul>
+                                  <li><i class="bi bi-check2-all"></i> Wir haben erfolgreich zahlreiche komplexe Projekte realisiert.</li>
+                                  <li><i class="bi bi-check2-all"></i> Wir verfügen über fundiertes Wissen in allen Bereichen des Bauens.</li>
+                                  <li><i class="bi bi-check2-all"></i> Wir verstehen die Anforderungen des Marktes und die Bedürfnisse unserer Kunden.</li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-6 order-1 order-lg-2 text-center">
+                              <img src="assets/img/features-3.jpg" alt="" class="img-fluid">
+                          </div>
+                      </div>
+                  </div><!-- End tab content item -->
+
+                  <div class="tab-pane" id="tab-4">
+                      <div class="row">
+                          <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                              <h3>Präzision bei jedem Schritt</h3>
+                              <p class="fst-italic">
+                                  Wir legen großen Wert auf Details und halten uns strikt an den Zeitplan.
+                              </p>
+                              <ul>
+                                  <li><i class="bi bi-check2-all"></i> Jede Phase des Projekts wird präzise ausgeführt, um das bestmögliche Ergebnis zu erzielen.</li>
+                                  <li><i class="bi bi-check2-all"></i> Wir garantieren die pünktliche Lieferung gemäß dem festgelegten Plan.</li>
+                                  <li><i class="bi bi-check2-all"></i> Jedes Projekt wird mit höchster Sorgfalt durchgeführt, um die beste Qualität zu gewährleisten.</li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-6 order-1 order-lg-2 text-center">
+                              <img src="assets/img/features-4.jpg" alt="" class="img-fluid">
+                          </div>
+                      </div>
+                  </div><!-- End tab content item -->
+
               </div>
-            </div>
-          </div><!-- End Card Item -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-2.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Possimus ut sed velit assumenda</h4>
-                    <p>Sunt deserunt maiores voluptatem autem est rerum perferendis rerum blanditiis. Est laboriosam qui
-                      iste numquam laboriosam voluptatem architecto. Est laudantium sunt at quas aut hic. Eum
-                      dignissimos.</p>
-                  </div>
-                </div>
+          </div>
+      </section><!-- End Features Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="recent-blog-posts" class="recent-blog-posts">
+          <div class="container" data-aos="fade-up">
+              <div class=" section-header">
+                  <h2>Unsere Dienstleistungen</h2>
+                  <p>Wir bei OPLAS BAU bieten eine breite Palette von Dienstleistungen im Bauwesen an, die speziell auf die Bedürfnisse unserer Kunden zugeschnitten sind.</p>
               </div>
-            </div>
-          </div><!-- End Card Item -->
+              <div class="row gy-5">
+                  <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                      <div class="post-item position-relative h-100">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-3.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Error beatae dolor inventore aut</h4>
-                    <p>Dicta porro nobis. Velit cum in. Nesciunt dignissimos enim molestiae facilis numquam quae quaerat
-                      ipsam omnis. Neque debitis ipsum at architecto officia laboriosam odit. Ut sunt temporibus nulla
-                      culpa.</p>
-                  </div>
-                </div>
+                          <div class="post-img position-relative overflow-hidden">
+                              <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
+                              <span class="post-date">December 12</span>
+                          </div>
+
+                          <div class="post-content d-flex flex-column">
+
+                              <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
+
+                              <div class="meta d-flex align-items-center">
+                                  <div class="d-flex align-items-center">
+                                      <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
+                                  </div>
+                                  <span class="px-3 text-black-50">/</span>
+                                  <div class="d-flex align-items-center">
+                                      <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
+                                  </div>
+                              </div>
+
+                              <hr>
+
+                              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
+                                      class="bi bi-arrow-right"></i></a>
+
+                          </div>
+
+                      </div>
+                  </div><!-- End post item -->
               </div>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(assets/img/constructions-4.jpg);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Expedita voluptas ut ut nesciunt</h4>
-                    <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos doloremque
-                      architecto illo at beatae dolore. Fugiat suscipit et sint ratione dolores. Aut aliquid ea dolores
-                      libero nobis.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Card Item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Constructions Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Services</h2>
-          <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos
-            quam</p>
-        </div>
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-mountain-city"></i>
-              </div>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis
-                tempore et consequatur.</p>
-              <a href="service-details.html" class="readmore stretched-link">Learn more <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-arrow-up-from-ground-water"></i>
-              </div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut
-                nesciunt dolorem.</p>
-              <a href="service-details.html" class="readmore stretched-link">Learn more <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-compass-drafting"></i>
-              </div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci
-                eos earum corrupti.</p>
-              <a href="service-details.html" class="readmore stretched-link">Learn more <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-trowel-bricks"></i>
-              </div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident
-                adipisci neque.</p>
-              <a href="service-details.html" class="readmore stretched-link">Learn more <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-helmet-safety"></i>
-              </div>
-              <h3>Velit Doloremque</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem
-                alias eius labore.</p>
-              <a href="service-details.html" class="readmore stretched-link">Learn more <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fa-solid fa-arrow-up-from-ground-water"></i>
-              </div>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti
-                recusandae ducimus enim.</p>
-              <a href="service-details.html" class="readmore stretched-link">Learn more <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
+          </div>
+      </section>
+      <!-- End Services Section -->
 
     <!-- ======= Alt Services Section ======= -->
     <section id="alt-services" class="alt-services">
@@ -379,43 +335,38 @@
             data-aos-delay="100"></div>
 
           <div class="col-lg-5 d-flex flex-column justify-content-center">
-            <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-            <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus
-              laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
+            <h3>Unsere Leistungen im Überblick</h3>
+            <p>Wir bieten Ihnen eine umfassende Palette an Bau- und Innenausbaudienstleistungen. Jede unserer Leistungen wird mit höchster Präzision und Qualität ausgeführt, um Ihre Erwartungen zu übertreffen.</p>
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
               <i class="bi bi-easel flex-shrink-0"></i>
               <div>
-                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate
-                  non provident</p>
+                <h4><a href="" class="stretched-link">Trockenbau und Fassadenbau</a></h4>
+                <p>Wir bieten maßgeschneiderte Lösungen im Bereich Trockenbau und Fassadenbau, die funktionale Innenräume und ästhetische, langlebige Außenfassaden schaffen.</p>
               </div>
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-patch-check flex-shrink-0"></i>
               <div>
-                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                  deleniti atque</p>
+                <h4><a href="" class="stretched-link">Parkett und Laminat Verlegung</a></h4>
+                <p>Unser Service für die Verlegung von Parkett und Laminat garantiert Ihnen langlebige, stilvolle Böden, die Ihre Räume aufwerten.</p>
               </div>
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-brightness-high flex-shrink-0"></i>
               <div>
-                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus
-                  aut eligendi omnis</p>
+                <h4><a href="" class="stretched-link"> Fliesenarbeiten und Gipskarton/Dekorbau</a></h4>
+                <p>Unsere Fliesenarbeiten sorgen für exakte Verlegung, während wir mit Gipskarton und Dekorbau kreative und funktionale Raumgestaltungen umsetzen.</p>
               </div>
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-brightness-high flex-shrink-0"></i>
               <div>
-                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non aspernatur odit amet.
-                  Et eligendi</p>
+                <h4><a href="" class="stretched-link">Malerarbeiten</a></h4>
+                <p>Unsere Malerarbeiten verleihen Ihren Räumen einen frischen, präzisen Anstrich mit hochwertigen Farben.</p>
               </div>
             </div><!-- End Icon Box -->
 
@@ -425,146 +376,14 @@
       </div>
     </section><!-- End Alt Services Section -->
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <ul class="nav nav-tabs row  g-2 d-flex">
-
-          <li class="nav-item col-3">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-              <h4>Modisit</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-              <h4>Praesenti</h4>
-            </a><!-- End tab nav item -->
-
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-              <h4>Explica</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
-              <h4>Nostrum</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-        </ul>
-
-        <div class="tab-content">
-
-          <div class="tab-pane active show" id="tab-1">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
-                data-aos="fade-up" data-aos-delay="100">
-                <h3>Voluptatem dignissimos provident</h3>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                    pariatur.</li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="assets/img/features-1.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-          <div class="tab-pane" id="tab-2">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Neque exercitationem debitis</h3>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
-                    Ipsum neque dolor voluptate nisi sed.</li>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                    pariatur.</li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-2.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-          <div class="tab-pane" id="tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Voluptatibus commodi accusamu</h3>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
-                    Ipsum neque dolor voluptate nisi sed.</li>
-                </ul>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore
-                  magna aliqua.
-                </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-3.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-          <div class="tab-pane" id="tab-4">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Omnis fugiat ea explicabo sunt</h3>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                    pariatur.</li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-4.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Features Section -->
 
     <!-- ======= Our Projects Section ======= -->
     <section id="projects" class="projects">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Projects</h2>
-          <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel architecto
-            accusamus fugit aut qui distinctio</p>
+          <h2>Unsere Projekte</h2>
+          <p>Entdecken Sie unsere abgeschlossenen Projekte und überzeugen Sie sich von der Qualität unserer Arbeit. Jedes Projekt wird mit höchster Präzision und Hingabe umgesetzt, um Ihre Erwartungen zu übertreffen.</p>
         </div>
 
         <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
@@ -668,92 +487,6 @@
               </div>
             </div><!-- End Projects Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/repairs-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Repairs 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/repairs-2.jpg" title="Repairs 2" data-gallery="portfolio-gallery-repairs"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/design-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Design 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/design-2.jpg" title="Repairs 2" data-gallery="portfolio-gallery-book"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/remodeling-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Remodeling 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/remodeling-3.jpg" title="Remodeling 3"
-                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/construction-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Construction 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/construction-3.jpg" title="Construction 3"
-                    data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/repairs-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Repairs 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/repairs-3.jpg" title="Repairs 2" data-gallery="portfolio-gallery-repairs"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/design-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Design 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/design-3.jpg" title="Repairs 3" data-gallery="portfolio-gallery-book"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
           </div><!-- End Projects Container -->
 
         </div>
@@ -766,9 +499,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Testimonials</h2>
-          <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia
-            reprehenderit sunt deleniti</p>
+          <h2>Was die Leute sagen</h2>
+          <p>Echte Kundenbewertungen</p>
         </div>
 
         <div class="slides-2 swiper">
@@ -777,17 +509,16 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <img style=" border-radius: 50%;" src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <h3>Nils Kessler</h3>
+                  <h4>Malerarbeiten</h4>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                    Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                      OPLAS BAU hat unsere Wände perfekt gestrichen. Die Farben sind genau so, wie wir sie uns vorgestellt haben, und die Arbeit wurde extrem sauber ausgeführt. Das Team war pünktlich und sehr professionell. Absolut empfehlenswert!
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
@@ -797,17 +528,16 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
+                  <img style=" border-radius: 50%;" src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <h3>Katrin Stoll</h3>
+                  <h4>Fliesen</h4>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                    quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                      Wir haben unsere Küche und das Badezimmer von OPLAS BAU fliesen lassen, und das Ergebnis ist einfach fantastisch! Die Fliesen sind makellos verlegt, und die Muster passen perfekt. Auch die Absprachen liefen reibungslos. Sehr zufrieden!
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
@@ -817,17 +547,16 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
+                  <img style=" border-radius: 50%;" src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Hendrik Falk</h3>
+                  <h4>Parkett</h4>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                    tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                      Das Parkett in unserem Wohnzimmer sieht jetzt dank OPLAS BAU wunderschön aus. Sie haben hochwertige Materialien verwendet und haben die Arbeit pünktlich abgeschlossen. Jeder Schritt wurde mit Präzision ausgeführt. Sehr beeindruckt!
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
@@ -837,17 +566,16 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
+                  <img style=" border-radius: 50%;" src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Abed Alrahman Bader</h3>
+                  <h4>Trockenbau</h4>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                    minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                      Die Trockenbauarbeiten wurden schnell und ohne Komplikationen erledigt. Die Wände sehen sehr stabil und glatt aus. Das Team von OPLAS BAU hat alles termingerecht fertiggestellt und war jederzeit hilfsbereit und freundlich.
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
@@ -857,18 +585,16 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
+                  <img style=" border-radius: 50%;" src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Matthias Dreyer</h3>
+                  <h4>Gipskarton</h4>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
-                    culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
-                    quid.
+                      Ich bin sehr zufrieden mit der Gipskarton-Arbeit von OPLAS BAU. Die Installation war präzise und das Endergebnis hat die Raumaufteilung viel besser gemacht. Ein professioneller und zuverlässiger Service.
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
@@ -882,120 +608,6 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Recent Blog Posts Section ======= -->
-    <section id="recent-blog-posts" class="recent-blog-posts">
-      <div class="container" data-aos="fade-up"">
-
-
-
-  <div class=" section-header">
-        <h2>Recent Blog Posts</h2>
-        <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
-      </div>
-
-      <div class="row gy-5">
-
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="post-item position-relative h-100">
-
-            <div class="post-img position-relative overflow-hidden">
-              <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
-              <span class="post-date">December 12</span>
-            </div>
-
-            <div class="post-content d-flex flex-column">
-
-              <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-
-              <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-                </div>
-              </div>
-
-              <hr>
-
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                  class="bi bi-arrow-right"></i></a>
-
-            </div>
-
-          </div>
-        </div><!-- End post item -->
-
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="post-item position-relative h-100">
-
-            <div class="post-img position-relative overflow-hidden">
-              <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="">
-              <span class="post-date">July 17</span>
-            </div>
-
-            <div class="post-content d-flex flex-column">
-
-              <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
-
-              <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-person"></i> <span class="ps-2">Mario Douglas</span>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
-                </div>
-              </div>
-
-              <hr>
-
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                  class="bi bi-arrow-right"></i></a>
-
-            </div>
-
-          </div>
-        </div><!-- End post item -->
-
-        <div class="col-xl-4 col-md-6">
-          <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
-
-            <div class="post-img position-relative overflow-hidden">
-              <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="">
-              <span class="post-date">September 05</span>
-            </div>
-
-            <div class="post-content d-flex flex-column">
-
-              <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
-
-              <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-                </div>
-              </div>
-
-              <hr>
-
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                  class="bi bi-arrow-right"></i></a>
-
-            </div>
-
-          </div>
-        </div><!-- End post item -->
-
-      </div>
-
-      </div>
-    </section>
-    <!-- End Recent Blog Posts Section -->
 
   </main><!-- End #main -->
 
@@ -1008,63 +620,47 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>UpConstruction</h3>
-              <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-              <div class="social-links d-flex mt-3">
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
-              </div>
+                <a href="index.html">
+                    <!-- Uncomment the line below if you also wish to use an image logo -->
+                    <img src="{{ URL::asset('assets/img/logo.png') }}" alt="Oplas Bau" style="max-height: 130px;">
+                </a>
             </div>
           </div><!-- End footer info column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
-            </ul>
+            <h4>ADRESSE</h4>
+              <p>
+                  A108 Adam Street <br>
+                  NY 535022, USA
+              </p>
+              <div style="margin-bottom: 10px" class="social-links d-flex mt-3">
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-map"></i></a>
+              </div>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
-            </ul>
+            <h4>KONTAKTE</h4>
+              <p>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+              </p>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Hic solutasetp</h4>
-            <ul>
-              <li><a href="#">Molestiae accusamus iure</a></li>
-              <li><a href="#">Excepturi dignissimos</a></li>
-              <li><a href="#">Suscipit distinctio</a></li>
-              <li><a href="#">Dilecta</a></li>
-              <li><a href="#">Sit quas consectetur</a></li>
-            </ul>
+            <h4>SOZIALE MEDIEN</h4>
+              <div class="social-links d-flex mt-3">
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-tiktok"></i></a>
+              </div>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Nobis illum</h4>
+            <h4>UNTERNEHMEN</h4>
             <ul>
-              <li><a href="#">Ipsam</a></li>
-              <li><a href="#">Laudantium dolorum</a></li>
-              <li><a href="#">Dinera</a></li>
-              <li><a href="#">Trodelas</a></li>
-              <li><a href="#">Flexo</a></li>
+              <li><a href="#">Impressum</a></li>
+              <li><a href="#">Datenschutz</a></li>
+              <li><a href="#">Kontakt</a></li>
             </ul>
           </div><!-- End footer links column-->
 
@@ -1075,15 +671,20 @@
     <div class="footer-legal text-center position-relative">
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
-            href="https://themewagon.com">ThemeWagon</a>
+            &copy;
+            <script>document.write(new Date().getFullYear());</script>
+            <a href="https://www.louioklaa.de/" style="font-weight: bolder;">Loui Oklaa</a> Alle Rechte
+            vorbehalten.
+            <a href="https://github.com/LouiOklaa" class="fab fa-github"></a>
+            <a href="https://www.facebook.com/loui.oklaa/" class="fab fa-facebook"></a>
+            <a href="https://www.linkedin.com/in/loui-oklaa/" class="fab fa-linkedin"></a>
+            <a href="https://www.instagram.com/loui_oklaa/" class="fab fa-instagram"></a>
+            <a href="https://wa.me/+4917670352663" class="fab fa-whatsapp"></a>
+            <a href="https://x.com/loui_oklaa">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16" style="margin-bottom: 3px">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                </svg>
+            </a>
         </div>
       </div>
     </div>

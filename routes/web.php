@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\GeneralInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ServicesSectionsController;
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('galerie', GalleryController::class);
     Route::resource('dienstleistungen', ServicesController::class);
     Route::resource('dienstleistungensbereich', ServicesSectionsController::class);
+    Route::resource('allgemeineinformationen', GeneralInformationController::class);
 
 });
 
