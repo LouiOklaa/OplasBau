@@ -11,8 +11,16 @@ class Gallery extends Model
 
     protected $fillable = [
         'name',
+        'section_id',
+        'section_name',
         'note',
         'media',
         'created_by',
     ];
+
+    public function sections(){
+
+        return $this->belongsTo(ServicesSections::class);
+
+    }
 }

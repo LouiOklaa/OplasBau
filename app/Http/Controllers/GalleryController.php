@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\ServicesSections;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,8 @@ class GalleryController extends Controller
     public function index()
     {
         $projects = gallery::paginate(6);
-        return view('Gallery.gallery' , compact('projects'));
+        $sections = ServicesSections::all();
+        return view('Gallery.gallery' , compact('projects' , 'sections'));
     }
 
     /**
@@ -35,6 +37,7 @@ class GalleryController extends Controller
 
             'name' => 'required|unique:galleries',
             'media' => 'required|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,mkv|max:10240',
+            'section_id' => 'required',
 
         ],[
 
@@ -43,8 +46,11 @@ class GalleryController extends Controller
             'media.required' =>'Bitte geben Sie ein Foto oder Video des Projekt eni',
             'media.file' =>'Die Datei muss ein Foto oder Video sein',
             'media.mimes' =>'Die Datei muss vom Typ jpeg,png,jpg,mp4,mov,mkv sein',
+            'section_id.required' =>'Bitte wählen Sie den Abschnitt aus',
 
         ]);
+
+        $section_name = ServicesSections::where('id' , $request->section_id)->first()->name;
 
         $media = $request->file('media');
         $file_name = rand() . '.' . $media->getClientOriginalExtension();
@@ -52,6 +58,8 @@ class GalleryController extends Controller
         gallery::create([
 
             'name' => $request->name,
+            'section_id' => $request->section_id,
+            'section_name' => $section_name,
             'note' => $request->note,
             'media' => $file_name,
             'created_by' => auth()->id(),
@@ -92,6 +100,7 @@ class GalleryController extends Controller
 
             'name' => 'required|unique:galleries,name,'.$id,
             'media' => 'file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,mkv|max:10240',
+            'section_name' => 'required',
 
         ],[
 
@@ -99,13 +108,19 @@ class GalleryController extends Controller
             'name.unique' =>'Dieses Projekt existiert bereits',
             'media.file' =>'Die Datei muss ein Foto oder Video sein',
             'media.mimes' =>'Die Datei muss vom Typ jpeg,png,jpg,mp4,mov,mkv sein',
+            'section_name.required' => 'Bitte wählen Sie den Abschnitt aus',
 
         ]);
+
+        $id = ServicesSections::where('name' , $request->section_name)->first()->id;
+        $section_name = ServicesSections::where('name' , $request->section_name)->first()->name;
 
         $projects = gallery::findOrFail($request->id);
 
         $projects->update([
             'name' => $request->name,
+            'section_id' => $id,
+            'section_name' => $section_name,
             'note' => $request->note,
         ]);
 

@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
+            $table->unsignedBigInteger( 'section_id' )->unsigned();
+            $table->foreign('section_id')->references('id')->on('services_sections')->onDelete('cascade');
+            $table->string('section_name', 50);
             $table->text('note')->nullable();
             $table->string('media');
             $table->string('created_by');

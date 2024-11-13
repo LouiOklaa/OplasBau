@@ -89,11 +89,12 @@
                                                     </figcaption>
                                                 </figure>
                                             </a>
+                                          <p>  <span style="color: #6C7293">Abschnitt : </span>{{ $one->section_name }}</p>
                                         </div>
                                         <br>
                                         <div class="text-center" style="margin-bottom: 10px;">
                                             <button class="btn btn-sm btn-rounded btn-inverse-primary" href="#edit_modal" title="Edit"
-                                                    data-id="{{ $one->id }}" data-name="{{ $one->name }}" data-note="{{ $one->note }}"
+                                                    data-id="{{ $one->id }}" data-name="{{ $one->name }}" data-section_name="{{$one->section_name}}" data-note="{{ $one->note }}"
                                                     data-toggle="modal">Bearbeiten
                                             </button>
                                             <button class="btn btn-sm btn-rounded btn-inverse-danger" href="#delete_modal" title="Delete"
@@ -160,6 +161,15 @@
                                                        style="color: #6C7293">
                                             </div>
                                             <div class="form-group">
+                                                <label class="my-1 mr-2" for="section_id">Abschnitt :</label>
+                                                <select name="section_id" id="section_id" class="form-control select2">
+                                                    <option value="#" selected disabled>-- Abschnitt auswählen --</option>
+                                                    @foreach ($sections as $one)
+                                                        <option value="{{ $one->id }}">{{ $one->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="note">Beschreibung :</label>
                                                 <textarea class="form-control" name="note" id="note" rows="3"
                                                           style="color: #6C7293"></textarea>
@@ -205,6 +215,14 @@
                                                     <input type="hidden" class="form-control" id="id" name="id">
                                                     <input type="text" class="form-control" id="name" name="name"
                                                            style="color: #6C7293">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="my-1 mr-2" for="section_name">Abschnitt :</label>
+                                                    <select name="section_name" id="section_name" class="form-control">
+                                                        @foreach ($sections as $one)
+                                                            <option> {{$one->name}} </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="note">Beschreibung :</label>
@@ -353,10 +371,12 @@
                     var button = $(event.relatedTarget)
                     var id = button.data('id')
                     var name = button.data('name')
+                    var section_name = button.data('section_name')
                     var note = button.data('note')
                     var modal = $(this)
                     modal.find('.modal-body #id').val(id);
                     modal.find('.modal-body #name').val(name);
+                    modal.find('.modal-body #section_name').val(section_name);
                     modal.find('.modal-body #note').val(note);
                 })
             </script>

@@ -85,49 +85,12 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi mdi-cellphone"></i>
-              </span>
-                    <span class="menu-title">Handys</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='handys') }}">Gerätes</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='abschnitte') }}">Abschnitte</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic-Z" aria-expanded="false" aria-controls="auth">
-              <span class="menu-icon">
-                <i class="mdi mdi-headphones"></i>
-              </span>
-                    <span class="menu-title">Zubehör</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic-Z">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='zubehör') }}">Hanadyzubehör</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='zubehör_kategorien') }}">Zubehör Abschnitte</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic-D" aria-expanded="false" aria-controls="auth">
+                <a class="nav-link" href="{{ url('/' . $page='dienstleistungen') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-library-books"></i>
               </span>
                     <span class="menu-title">Dienstleistungen</span>
-                    <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse" id="ui-basic-D">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='dienstleistungen') }}">Dienstleistungen</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='dienstleistungensbereich') }}">Dienstleistungensbereich</a></li>
-                    </ul>
-                </div>
             </li>
             <li class="nav-item menu-items">
                 <a class="nav-link" href="{{ url('/' . $page='galerie') }}">
@@ -135,6 +98,14 @@
                 <i class="mdi mdi-collage"></i>
               </span>
                     <span class="menu-title">Galerie</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="{{ url('/' . $page='abschnitte') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi mdi-format-list-bulleted-type"></i>
+              </span>
+                    <span class="menu-title">Abschnitte</span>
                 </a>
             </li>
             <li class="nav-item menu-items">

@@ -47,7 +47,7 @@ class ServicesSectionsController extends Controller
         ]);
 
         session()->flash('Add' , 'Der Abschnitt wurde erfolgreich hinzugefügt');
-        return redirect("/dienstleistungensbereich");
+        return redirect("/abschnitte");
     }
 
     /**
@@ -91,7 +91,7 @@ class ServicesSectionsController extends Controller
         ]);
 
         session()->flash('Edit','Der Abschnitt wurde erflogreich geändert');
-        return redirect('/dienstleistungensbereich');
+        return redirect('/abschnitte');
     }
 
     /**
@@ -103,6 +103,6 @@ class ServicesSectionsController extends Controller
         ServicesSections::find($id)->delete();
 
         session()->flash('Delete','Der Abschnitt wurde erflogreich gelöscht');
-        return redirect('/dienstleistungensbereich');
+        return redirect('/abschnitte');
     }
 }

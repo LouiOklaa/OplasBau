@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Dienstleistungensbereich
+    Abschnitte
 @endsection
 @section('contents')
 
@@ -131,7 +131,7 @@
                                             aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{route('dienstleistungensbereich.store')}}" method="post"
+                                <form action="{{route('abschnitte.store')}}" method="post"
                                       autocomplete="off">
                                     {{ csrf_field() }}
                                     <div class="form-group">
@@ -168,7 +168,7 @@
                                             aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                                <form action="dienstleistungensbereich/update" method="post" autocomplete="off">
+                                <form action="abschnitte/update" method="post" autocomplete="off">
                                     {{method_field('patch')}}
                                     {{csrf_field()}}
                                     <div class="modal-body">
@@ -210,7 +210,7 @@
                                             aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                                <form action="dienstleistungensbereich/destroy" method="post">
+                                <form action="abschnitte/destroy" method="post">
                                     {{method_field('delete')}}
                                     {{csrf_field()}}
                                     <div class="modal-body">

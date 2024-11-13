@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [HomeController::class, 'index']);
     Route::resource('galerie', GalleryController::class);
     Route::resource('dienstleistungen', ServicesController::class);
-    Route::resource('dienstleistungensbereich', ServicesSectionsController::class);
+    Route::resource('abschnitte', ServicesSectionsController::class);
     Route::resource('allgemeineinformationen', GeneralInformationController::class);
 
 });
