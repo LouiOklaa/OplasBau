@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li><a href="about.html">Über uns</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="{{route('contact_us')}}">Kontakt</a></li>
                 </ul>
             </nav>
         </div><!-- .navbar-container -->
@@ -129,10 +129,10 @@
               <p>Jedes Bauprojekt beginnt mit einer Vision – und wir sind hier, um sie Wirklichkeit werden zu lassen. Ob es sich um Trockenbau, Parkett, Laminat, Fliesen, Gipskarton oder Malerarbeiten handelt – unser erfahrenes Team begleitet Sie bei jedem Schritt des Weges, von der ersten Planung bis zur letzten Feinabstimmung. Wir legen höchsten Wert auf Qualität, Präzision und Ihre Zufriedenheit. Kontaktieren Sie uns und lassen Sie uns gemeinsam die Räume schaffen, die Ihren Vorstellungen und Wünschen entsprechen!
             </div>
           </div>
-
           <div class="col-lg-5" data-aos="fade">
-            <form action="forms/quote.php" method="post" class="php-email-form">
-              <h3>Fragen Sie gerne an!</h3>
+            <form id="contact-form" action="{{ route('send_email') }}" method="post" class="php-email-form">
+                @csrf
+              <h2 style="color: var(--color-primary); font-weight: bolder">Fragen Sie gerne an!</h2>
               <p>Wir sind für Sie da – lassen Sie uns wissen, wie wir helfen können!</p>
               <div class="row gy-3">
 
@@ -153,11 +153,9 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
-
-                  <button type="submit">Senden</button>
+                    <div id="error-message"></div>
+                    <div id="success-message" style="color: var(--color-primary); font-weight: bolder"></div>
+                  <button type="submit" id="submit-btn">Senden</button>
                 </div>
 
               </div>
@@ -680,6 +678,60 @@
 
   <!-- Template Main JS File -->
   <script src="{{ URL::asset('assets/frontend/js/main.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#contact-form').on('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            // Hide success and error messages initially
+            $('#success-message').hide();
+            $('#error-message').hide();
+
+            // Disable the button after form submission
+            $('#submit-btn').prop('disabled', true); // Disable the button to prevent multiple submissions
+
+            $.ajax({
+                url: $(this).attr('action'),
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    // Check if the response contains success and show success message if available
+                    if (response.success) {
+                        $('#success-message').text(response.success).fadeIn();
+
+                        // Hide the success message after 5 seconds
+                        setTimeout(function() {
+                            $('#success-message').fadeOut();
+                        }, 4000);
+
+                        // Clear the form fields after successful submission
+                        $('#contact-form')[0].reset();
+
+                        // Hide the submit button after the submission
+                        $('#submit-btn').hide();
+
+                        // Re-enable and show the submit button after 5 seconds
+                        setTimeout(function() {
+                            $('#submit-btn').show(); // Show the button again
+                            $('#submit-btn').prop('disabled', false); // Re-enable the button
+                        }, 5000);
+                    } else {
+                        // Show error message if no success response
+                        $('#error-message').text('Beim Senden der Nachricht ist ein Fehler aufgetreten.').fadeIn();
+                    }
+                },
+                error: function(xhr) {
+                    // Show error message if there's an issue with the request
+                    $('#error-message').text('Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.').fadeIn();
+
+                    // Re-enable the button if there's an error
+                    $('#submit-btn').prop('disabled', false);
+                }
+            });
+        });
+    });
+  </script>
 
 </body>
 

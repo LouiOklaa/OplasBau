@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li><a href="about.html" id="link-about">Über uns</a></li>
-                    <li><a href="contact.html" id="link-contact">Kontakt</a></li>
+                    <li><a href="{{route('contact_us')}}" id="link-contact">Kontakt</a></li>
                 </ul>
             </nav>
         </div><!-- .navbar-container -->
@@ -369,6 +369,7 @@
             .catch(error => console.error('Error:', error));
     });
 </script>
+@yield('JS')
 
 </body>
 

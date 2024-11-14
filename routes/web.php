@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GeneralInformationController;
 use App\Http\Controllers\HomeController;
@@ -48,5 +49,8 @@ Route::get('/alle_projekte', [ViewController::class, 'showProjects'])->name('all
 Route::post('/alle_projekte/sortieren', [ViewController::class, 'sortAllProjects'])->name('sort_all_projects');
 Route::get('/projekte/{section_name}', [ViewController::class, 'showProjects'])->name('show_projects');
 Route::post('/projekte/sortieren', [ViewController::class, 'sortProjects'])->name('sort_projects');
+
+Route::post('/anfrage/senden', [ContactController::class, 'send'])->name('send_email');
+Route::get('/kontakt', function () {$information = \App\Models\GeneralInformation::first(); return view('emails.contact_us' , compact('information')); })->name('contact_us');
 
 Route::get('/{page}', [AdminController::class, 'index']);
