@@ -42,6 +42,7 @@ Homestead.json
 /public/build
 /public/hot
 /public/storage
+/public/Attachments
 /storage/*.key
 /vendor
 .env

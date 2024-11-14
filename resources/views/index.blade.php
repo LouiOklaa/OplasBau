@@ -52,20 +52,20 @@
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="index.html" class="active">Startseite</a></li>
+                    <li><a href="{{url('/')}}" class="active">Startseite</a></li>
                     <li class="dropdown"><a href="#"><span>Dienstleistungen</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            @foreach($services_sections as $one)
-                                <li><a href="{{ route('show_services', ['section_name' => urlencode(str_replace(' ', '-', $one->name))]) }}">{{$one->name}}</a></li>
+                            @foreach($services->pluck('section_name')->unique() as $one)
+                                <li><a href="{{ route('show_services', ['section_name' => urlencode(str_replace(' ', '-', $one))]) }}">{{$one}}</a></li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span>Projekte</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            @foreach($services_sections as $one)
-                                <li><a href="#">{{$one->name}}</a></li>
+                            @foreach($projects->pluck('section_name')->unique() as $one)
+                                <li><a href="{{ route('show_projects', ['section_name' => urlencode(str_replace(' ', '-', $one))]) }}">{{$one}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -396,121 +396,78 @@
 
 
     <!-- ======= Our Projects Section ======= -->
-    <section id="projects" class="projects">
-      <div class="container" data-aos="fade-up">
+      <section id="projects" class="projects">
+          <div class="container" data-aos="fade-up">
 
-        <div class="section-header">
-          <h2>Unsere Projekte</h2>
-          <p>Entdecken Sie unsere abgeschlossenen Projekte und überzeugen Sie sich von der Qualität unserer Arbeit. Jedes Projekt wird mit höchster Präzision und Hingabe umgesetzt, um Ihre Erwartungen zu übertreffen.</p>
-        </div>
-
-        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
-          data-portfolio-sort="original-order">
-
-          <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-remodeling">Remodeling</li>
-            <li data-filter=".filter-construction">Construction</li>
-            <li data-filter=".filter-repairs">Repairs</li>
-            <li data-filter=".filter-design">Design</li>
-          </ul><!-- End Projects Filters -->
-
-          <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/remodeling-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Remodeling 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/remodeling-1.jpg" title="Remodeling 1"
-                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
+              <div class="section-header">
+                  <h2>Unsere Projekte</h2>
+                  <p>Entdecken Sie unsere abgeschlossenen Projekte und überzeugen Sie sich von der Qualität unserer Arbeit. Jedes Projekt wird mit höchster Präzision und Hingabe umgesetzt, um Ihre Erwartungen zu übertreffen.</p>
               </div>
-            </div><!-- End Projects Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/construction-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Construction 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/construction-1.jpg" title="Construction 1"
-                    data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
+              <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                   data-portfolio-sort="original-order">
+
+                  <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+                      <li data-filter="*" class="filter-active">All</li>
+                      @php
+                          $displayedProjectsSections = [];
+                      @endphp
+                      @foreach($projects as $project)
+                          @if (!in_array($project->section_name, $displayedProjectsSections))
+                              <li data-filter=".filter-{{ \Str::slug($project->section_name) }}">{{ $project->section_name }}</li>
+                              @php
+                                  $displayedProjectsSections[] = $project->section_name;
+                              @endphp
+                          @endif
+                      @endforeach
+                  </ul><!-- End Projects Filters -->
+
+                  <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                      @php
+                          $sectionProjects = [];
+                      @endphp
+                      @foreach($projects as $project)
+                          @php
+                              $sectionKey = \Str::slug($project->section_name);
+                              if (!isset($sectionProjects[$sectionKey])) {
+                                  $sectionProjects[$sectionKey] = [];
+                              }
+                              $sectionProjects[$sectionKey][] = $project;
+                          @endphp
+                      @endforeach
+
+                      @foreach($sectionProjects as $sectionKey => $projects)
+                          @foreach(array_slice($projects, 0, 6) as $project)
+                                  <?php $mediaExtensions = pathinfo("Attachments/Galerie/$project->media", PATHINFO_EXTENSION) ?>
+                              <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $sectionKey }}">
+                                  <div class="portfolio-content h-100">
+                                      @if(in_array($mediaExtensions , ['jpg' , 'jpeg' , 'png' , 'gif']))
+                                          <img style="width: 100%; height: 300px; object-fit: cover;" src="{{ asset('Attachments/Galerie/' . $project->media) }}" class="img-fluid" />
+                                      @elseif(in_array($mediaExtensions , ['mp4' , 'mkv' , 'mov']))
+                                          <video style="width: 100%; height: 300px; object-fit: cover;" src="{{ asset('Attachments/Galerie/' . $project->media) }}" class="img-fluid"></video>
+                                      @endif
+                                      <div class="portfolio-info">
+                                          <h4>{{ $project->name }}</h4>
+                                          <p>{{ $project->note }}</p>
+                                          <a href="{{ asset('Attachments/Galerie/' . $project->media) }}" class="glightbox preview-link">
+                                              <i class="bi bi-zoom-in"></i>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          @endforeach
+                      @endforeach
+                  </div><!-- End Projects Container -->
+
               </div>
-            </div><!-- End Projects Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/repairs-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Repairs 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/repairs-1.jpg" title="Repairs 1" data-gallery="portfolio-gallery-repairs"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
+              <br>
+              <div class="text-center">
+                  <a class="btn button-y" href="{{ route('all_projects') }}">Alle Projekte anzeigen</a>
               </div>
-            </div><!-- End Projects Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/design-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Design 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/design-1.jpg" title="Repairs 1" data-gallery="portfolio-gallery-book"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
+          </div>
+      </section><!-- End Our Projects Section -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/remodeling-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Remodeling 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/remodeling-2.jpg" title="Remodeling 2"
-                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/projects/construction-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Construction 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/projects/construction-2.jpg" title="Construction 2"
-                    data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="project-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Projects Item -->
-
-          </div><!-- End Projects Container -->
-
-        </div>
-
-      </div>
-    </section><!-- End Our Projects Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">

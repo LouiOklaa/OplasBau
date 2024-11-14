@@ -44,4 +44,9 @@ Route::post('/alle_dienstleistungen/sortieren', [ViewController::class, 'sortAll
 Route::get('/dienstleistung/{section_name}', [ViewController::class, 'showServices'])->name('show_services');
 Route::post('/dienstleistung/sortieren', [ViewController::class, 'sortServices'])->name('sort_services');
 
+Route::get('/alle_projekte', [ViewController::class, 'showProjects'])->name('all_projects');
+Route::post('/alle_projekte/sortieren', [ViewController::class, 'sortAllProjects'])->name('sort_all_projects');
+Route::get('/projekte/{section_name}', [ViewController::class, 'showProjects'])->name('show_projects');
+Route::post('/projekte/sortieren', [ViewController::class, 'sortProjects'])->name('sort_projects');
+
 Route::get('/{page}', [AdminController::class, 'index']);

@@ -56,16 +56,16 @@
                     <li class="dropdown"><a href="#" id="link-services"><span>Dienstleistungen</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            @foreach($services_sections as $one)
-                                <li><a href="{{ route('show_services', ['section_name' => urlencode(str_replace(' ', '-', $one->name))]) }}" class="service-link">{{$one->name}}</a></li>
+                            @foreach($services as $x)
+                                <li><a href="{{ route('show_services', ['section_name' => urlencode(str_replace(' ', '-', $x))]) }}">{{$x}}</a></li>
                             @endforeach
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" id="link-projects"><span>Projekte</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            @foreach($services_sections as $one)
-                                <li><a href="#" class="link-projects">{{$one->name}}</a></li>
+                            @foreach($projects as $one)
+                                <li><a href="{{ route('show_projects', ['section_name' => urlencode(str_replace(' ', '-', $one))]) }}">{{$one}}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -300,6 +300,73 @@
         if (isProjectActive) {
             document.getElementById('link-projects').classList.add('active');
         }
+    });
+</script>
+
+<!-- Sort Projects Script -->
+<script>
+    document.getElementById('sort3').addEventListener('change', function () {
+        const sortValue = this.value;
+
+        // Define the filter option as the first option in the list of choices
+        const filterOption = this.options[0];
+        // Hide or show the filter option based on the selected option
+        if (sortValue) {
+            filterOption.style.display = 'none'; // Hide the filter option
+        } else {
+            filterOption.style.display = 'block'; // Show the filter option if nothing is
+        }
+
+        const page = new URLSearchParams(window.location.search).get('page') || 1;
+        const sectionName = document.querySelector('input[name="sectionName"]').value;
+
+        fetch(`{{ route('sort_projects') }}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ sort: sortValue, page: page , sectionName: sectionName,})
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Update the page content with the new value returned.
+                document.querySelector('.gy-4').innerHTML = data.html;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+
+<!-- Sort All Projects Script -->
+<script>
+    document.getElementById('sort4').addEventListener('change', function () {
+        const sortValue = this.value;
+
+        // Define the filter option as the first option in the list of choices
+        const filterOption = this.options[0];
+        // Hide or show the filter option based on the selected option
+        if (sortValue) {
+            filterOption.style.display = 'none'; // Hide the filter option
+        } else {
+            filterOption.style.display = 'block'; // Show the filter option if nothing is
+        }
+
+        const page = new URLSearchParams(window.location.search).get('page') || 1;
+
+        fetch(`{{ route('sort_all_projects') }}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ sort: sortValue, page: page })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Update the page content with the new value returned.
+                document.querySelector('.gy-4').innerHTML = data.html;
+            })
+            .catch(error => console.error('Error:', error));
     });
 </script>
 
