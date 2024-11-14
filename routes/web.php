@@ -6,6 +6,7 @@ use App\Http\Controllers\GeneralInformationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ServicesSectionsController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +36,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('allgemeineinformationen', GeneralInformationController::class);
 
 });
+
+Route::get('/', [ViewController::class, 'index']);
+
+Route::get('/alle_dienstleistungen', [ViewController::class, 'showServices'])->name('all_services');
+Route::post('/alle_dienstleistungen/sortieren', [ViewController::class, 'sortAllServices'])->name('sort_all_services');
+Route::get('/dienstleistung/{section_name}', [ViewController::class, 'showServices'])->name('show_services');
+Route::post('/dienstleistung/sortieren', [ViewController::class, 'sortServices'])->name('sort_services');
 
 Route::get('/{page}', [AdminController::class, 'index']);

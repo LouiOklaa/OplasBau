@@ -40,7 +40,7 @@
 
         <!-- Logo section -->
         <div class="logo-container d-flex align-items-center">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{url('/')}}" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <img src="{{ URL::asset('assets/img/logo.svg') }}" alt="" class="logo-img">
             </a>
@@ -56,10 +56,19 @@
                     <li class="dropdown"><a href="#"><span>Dienstleistungen</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <li><a href="#">Dropdown 4</a></li>
+                            @foreach($services_sections as $one)
+                                <li><a href="{{ route('show_services', ['section_name' => urlencode(str_replace(' ', '-', $one->name))]) }}">{{$one->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
-                    <li><a href="projects.html">Projekte</a></li>
+                    <li class="dropdown"><a href="#"><span>Projekte</span> <i
+                                class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul>
+                            @foreach($services_sections as $one)
+                                <li><a href="#">{{$one->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
                     <li><a href="about.html">Über uns</a></li>
                     <li><a href="contact.html">Kontakt</a></li>
                 </ul>
@@ -79,7 +88,7 @@
             <h2 data-aos="fade-down"><span style="color: var(--color-primary)">Willkommen bei</span><br><span>OPLAS BAU</span></h2>
             <p data-aos="fade-up">Ihrem Experten für hochwertige Bauleistungen!
                 Unsere Firma bietet Ihnen professionelle Dienstleistungen im Bereich Trockenbau, Parkett, Laminat, Fliesen, Gipskarton und Malerarbeiten. Mit langjähriger Erfahrung und einem qualifizierten Team verwirklichen wir Ihre Bauwünsche bis ins kleinste Detail.</p>
-            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
+            <a data-aos="fade-up" data-aos-delay="200" href="#jetzt-starten" class="btn-get-started">Jetzt Starten</a>
           </div>
         </div>
       </div>
@@ -109,7 +118,7 @@
   <main id="main">
 
     <!-- ======= Get Started Section ======= -->
-    <section id="get-started" class="get-started section-bg">
+    <section id="jetzt-starten" class="get-started section-bg">
       <div class="container">
 
         <div class="row justify-content-between gy-4">
@@ -280,41 +289,56 @@
       <section id="recent-blog-posts" class="recent-blog-posts">
           <div class="container" data-aos="fade-up">
               <div class=" section-header">
-                  <h2>Unsere Dienstleistungen</h2>
+                  <h2>Dienstleistungen</h2>
                   <p>Wir bei OPLAS BAU bieten eine breite Palette von Dienstleistungen im Bauwesen an, die speziell auf die Bedürfnisse unserer Kunden zugeschnitten sind.</p>
               </div>
               <div class="row gy-5">
-                  <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                      <div class="post-item position-relative h-100">
-
-                          <div class="post-img position-relative overflow-hidden">
-                              <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
-                              <span class="post-date">December 12</span>
-                          </div>
-
-                          <div class="post-content d-flex flex-column">
-
-                              <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-
-                              <div class="meta d-flex align-items-center">
-                                  <div class="d-flex align-items-center">
-                                      <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
+                  @php
+                      $displayedSections = [];
+                      $servicesDisplayedCount = 0;
+                  @endphp
+                  @foreach($services as $one)
+                      @if (!in_array($one->section_name, $displayedSections) && $servicesDisplayedCount < 6)
+                          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                              <div class="post-item position-relative h-100">
+                                  <div class="post-img position-relative overflow-hidden">
+                                      <a href="{{asset( 'Attachments/Services/' . $one->image)}}">
+                                          <img src="{{url('/Attachments/Services/' .$one->image)}}" class="img-fluid" alt=""
+                                               style="object-fit: cover; width: 100%; height: 300px;">
+                                      </a>
                                   </div>
-                                  <span class="px-3 text-black-50">/</span>
-                                  <div class="d-flex align-items-center">
-                                      <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
+                                  <div class="post-content d-flex flex-column">
+                                      <h3 class="post-title">{{$one->name}}</h3>
+                                      <div class="meta d-flex align-items-center">
+                                          <div class="d-flex align-items-center">
+                                             <span class="ps-2" style="color: var(--color-primary); font-weight: bold">{{$one->section_name}}</span>
+                                          </div>
+                                      </div>
+                                      <hr>
+                                      <div class="meta d-flex align-items-center">
+                                          <div class="d-flex align-items-center">
+                                              <span class="ps-2">
+                                                  <span class="post-title">Beschreibung :</span>
+                                                  @if($one->note != 0)
+                                                    {{$one->note}}
+                                                  @else
+                                                    Unverfügbar
+                                                  @endif
+                                              </span>
+                                          </div>
+                                      </div>
                                   </div>
                               </div>
-
-                              <hr>
-
-                              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                                      class="bi bi-arrow-right"></i></a>
-
                           </div>
-
-                      </div>
-                  </div><!-- End post item -->
+                          @php
+                              $displayedSections[] = $one->section_name;
+                              $servicesDisplayedCount++;
+                          @endphp
+                     @endif
+                  @endforeach
+                  <div class="text-center">
+                    <a class="btn button-y" href="{{ route('all_services') }}">Alle Dienstleistungen anzeigen</a>
+                  </div>
               </div>
           </div>
       </section>
@@ -623,29 +647,26 @@
 
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>ADRESSE</h4>
-              <p>
-                  A108 Adam Street <br>
-                  NY 535022, USA
-              </p>
-              <div style="margin-bottom: 10px" class="social-links d-flex mt-3">
-                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-map"></i></a>
-              </div>
+              <a href="{{$information->address_link}}">
+                  {{$information->address}}
+              </a>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>KONTAKTE</h4>
-              <p>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+            <h4>KONTAKTE INFO</h4>
+              <p style="var(--color-primary);">
+                 {{$information->email}}<br>
+                 {{$information->phone_number}}<br>
               </p>
           </div><!-- End footer links column-->
 
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>SOZIALE MEDIEN</h4>
               <div class="social-links d-flex mt-3">
-                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-tiktok"></i></a>
+                  <a href="https://wa.me/{{$information->phone_number}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+                  <a href="{{$information->facebook_link}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                  <a href="{{$information->instagram_link}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                  <a href="{{$information->tiktok_link}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-tiktok"></i></a>
               </div>
           </div><!-- End footer links column-->
 
