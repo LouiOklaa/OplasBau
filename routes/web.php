@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GeneralInformationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ServicesSectionsController;
 use App\Http\Controllers\ViewController;
@@ -35,6 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('dienstleistungen', ServicesController::class);
     Route::resource('abschnitte', ServicesSectionsController::class);
     Route::resource('allgemeineinformationen', GeneralInformationController::class);
+    Route::get('/alle_nachrichten', [MessagesController::class, 'index'])->name('show_all_messages');
+    Route::get('/nachricht/{id}', [MessagesController::class, 'viewMessage'])->name('show_message');
 
 });
 

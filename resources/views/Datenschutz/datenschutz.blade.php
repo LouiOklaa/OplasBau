@@ -8,7 +8,7 @@
 @section('contents')
 
     <div class="container">
-        <h1 style="font-size: 50px" class="h1 mb-6">
+        <h1 style="font-size: 35px" class="h1 mb-6">
             <span>Datenschutzerklärung</span>
         </h1>
           <p style="font-size: 25px">Im Folgenden informieren wir über die Verarbeitung personenbezogener Daten bei Nutzung unserer Webseite.</p>
