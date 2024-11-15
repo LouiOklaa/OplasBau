@@ -55,5 +55,6 @@ Route::get('/kontakt', function () {$information = \App\Models\GeneralInformatio
 
 Route::get('/über_uns', function () { return view('About.about_us'); })->name('about_us');
 Route::get('/datenschutz', function () {$information = \App\Models\GeneralInformation::first(); return view('Datenschutz.datenschutz' , compact('information')); })->name('data_protection');
+Route::get('/impressum', function () {$information = \App\Models\GeneralInformation::first(); return view('Imprint.imprint' , compact('information')); })->name('imprint');
 
 Route::get('/{page}', [AdminController::class, 'index']);

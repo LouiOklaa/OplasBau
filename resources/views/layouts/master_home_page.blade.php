@@ -153,7 +153,7 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>UNTERNEHMEN</h4>
                     <ul>
-                        <li><a href="#">Impressum</a></li>
+                        <li><a href="{{route('imprint')}}">Impressum</a></li>
                         <li><a href="{{route('data_protection')}}">Datenschutz</a></li>
                         <li><a href="{{route('contact_us')}}">Kontakt</a></li>
                     </ul>

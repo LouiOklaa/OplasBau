@@ -593,7 +593,7 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-                <a href="index.html">
+                <a href="{{url('/')}}">
                     <!-- Uncomment the line below if you also wish to use an image logo -->
                     <img src="{{ URL::asset('assets/img/logo.png') }}" alt="Oplas Bau" style="max-height: 130px;">
                 </a>
@@ -628,7 +628,7 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>UNTERNEHMEN</h4>
             <ul>
-              <li><a href="#">Impressum</a></li>
+              <li><a href="{{route('imprint')}}">Impressum</a></li>
               <li><a href="{{route('data_protection')}}">Datenschutz</a></li>
               <li><a href="{{route('contact_us')}}">Kontakt</a></li>
             </ul>
