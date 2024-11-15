@@ -69,7 +69,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="about.html">Über uns</a></li>
+                    <li><a href="{{route('about_us')}}">Über uns</a></li>
                     <li><a href="{{route('contact_us')}}">Kontakt</a></li>
                 </ul>
             </nav>
@@ -629,8 +629,8 @@
             <h4>UNTERNEHMEN</h4>
             <ul>
               <li><a href="#">Impressum</a></li>
-              <li><a href="#">Datenschutz</a></li>
-              <li><a href="#">Kontakt</a></li>
+              <li><a href="{{route('data_protection')}}">Datenschutz</a></li>
+              <li><a href="{{route('contact_us')}}">Kontakt</a></li>
             </ul>
           </div><!-- End footer links column-->
 

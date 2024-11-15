@@ -69,7 +69,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="about.html" id="link-about">Über uns</a></li>
+                    <li><a href="{{route('about_us')}}" id="link-about">Über uns</a></li>
                     <li><a href="{{route('contact_us')}}" id="link-contact">Kontakt</a></li>
                 </ul>
             </nav>
@@ -118,7 +118,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-info">
-                        <a href="index.html">
+                        <a href="{{url('/')}}">
                             <!-- Uncomment the line below if you also wish to use an image logo -->
                             <img src="{{ URL::asset('assets/img/logo.png') }}" alt="Oplas Bau" style="max-height: 130px;">
                         </a>
@@ -154,8 +154,8 @@
                     <h4>UNTERNEHMEN</h4>
                     <ul>
                         <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutz</a></li>
-                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="{{route('data_protection')}}">Datenschutz</a></li>
+                        <li><a href="{{route('contact_us')}}">Kontakt</a></li>
                     </ul>
                 </div><!-- End footer links column-->
 
@@ -275,6 +275,8 @@
     document.addEventListener('DOMContentLoaded', function () {
         const currentURL = location.href;
 
+        const aboutLink = document.getElementById('link-about');
+        const contactLink = document.getElementById('link-contact');
         const serviceLinks = document.querySelectorAll('.service-link');
         const projectLinks = document.querySelectorAll('.project-link');
 
@@ -292,6 +294,14 @@
                 isProjectActive = true;
             }
         });
+
+        if (aboutLink && aboutLink.href === currentURL) {
+            aboutLink.classList.add('active');
+        }
+
+        if (contactLink && contactLink.href === currentURL) {
+            contactLink.classList.add('active');
+        }
 
         if (isServiceActive) {
             document.getElementById('link-services').classList.add('active');

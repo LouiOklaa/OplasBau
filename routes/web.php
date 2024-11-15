@@ -53,4 +53,7 @@ Route::post('/projekte/sortieren', [ViewController::class, 'sortProjects'])->nam
 Route::post('/anfrage/senden', [ContactController::class, 'send'])->name('send_email');
 Route::get('/kontakt', function () {$information = \App\Models\GeneralInformation::first(); return view('emails.contact_us' , compact('information')); })->name('contact_us');
 
+Route::get('/über_uns', function () { return view('About.about_us'); })->name('about_us');
+Route::get('/datenschutz', function () {$information = \App\Models\GeneralInformation::first(); return view('Datenschutz.datenschutz' , compact('information')); })->name('data_protection');
+
 Route::get('/{page}', [AdminController::class, 'index']);
