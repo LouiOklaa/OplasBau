@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('email_logs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->string('message');
+            $table->string('email')->unique(); // Make email unique to identify conversations
+            $table->json('message');
+            $table->json('replies')->nullable();
             $table->timestamp('sent_at');
             $table->timestamps();
         });

@@ -9,7 +9,13 @@ use Illuminate\Support\Carbon;
 class EmailLog extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'email', 'message', 'sent_at'];
+    protected $fillable = ['name', 'email', 'message', 'sent_at', 'replies'];
+
+    protected $casts = [
+        'message' => 'array', // تخزين الرسائل كمصفوفة
+        'replies' => 'array', // تحديد الحقل كمصفوفة JSON
+    ];
+
 
     public function getSentAtFormattedAttribute()
     {

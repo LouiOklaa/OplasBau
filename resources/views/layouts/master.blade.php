@@ -69,65 +69,80 @@
                 <span class="nav-link">Hauptmenü</span>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ url('/' . $page='admin') }}">
-              <span class="menu-icon">
+                <a class="nav-link" href="/admin">
+            <span class="menu-icon">
                 <i class="mdi mdi-view-dashboard"></i>
-              </span>
+            </span>
                     <span class="menu-title">Armaturenbrett</span>
                 </a>
             </li>
+
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ url('/' . $page='allgemeineinformationen') }}">
-              <span class="menu-icon">
+                <a class="nav-link" href="/allgemeineinformationen">
+            <span class="menu-icon">
                 <i class="mdi mdi-information-variant"></i>
-              </span>
+            </span>
                     <span class="menu-title">Allg. Informationen</span>
                 </a>
             </li>
+
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ url('/' . $page='dienstleistungen') }}">
-              <span class="menu-icon">
+                <a class="nav-link" href="/dienstleistungen">
+            <span class="menu-icon">
                 <i class="mdi mdi-library-books"></i>
-              </span>
+            </span>
                     <span class="menu-title">Dienstleistungen</span>
                 </a>
             </li>
+
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ url('/' . $page='galerie') }}">
-              <span class="menu-icon">
+                <a class="nav-link" href="/galerie">
+            <span class="menu-icon">
                 <i class="mdi mdi-collage"></i>
-              </span>
+            </span>
                     <span class="menu-title">Galerie</span>
                 </a>
             </li>
+
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ url('/' . $page='abschnitte') }}">
-              <span class="menu-icon">
-                <i class="mdi mdi mdi-format-list-bulleted-type"></i>
-              </span>
+                <a class="nav-link" href="/abschnitte">
+            <span class="menu-icon">
+                <i class="mdi mdi-format-list-bulleted-type"></i>
+            </span>
                     <span class="menu-title">Abschnitte</span>
                 </a>
             </li>
+
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic-E" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
+                <a class="nav-link" href="/alle_nachrichten">
+            <span class="menu-icon">
+                <i class="mdi mdi-message"></i>
+            </span>
+                    <span class="menu-title">Nachrichten</span>
+                </a>
+            </li>
+
+            <li class="nav-item menu-items">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-E" aria-expanded="false" aria-controls="ui-basic-E">
+            <span class="menu-icon">
                 <i class="mdi mdi-settings"></i>
-              </span>
+            </span>
                     <span class="menu-title">Einstellungen</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="ui-basic-E">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='benutzer') }}">Benutzer</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ url('/' . $page='rollen') }}">Benutzerrollen</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/benutzer">Benutzer</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/rollen">Benutzerrollen</a></li>
                     </ul>
                 </div>
             </li>
+
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{ url('/' . $page='dokumentation') }}">
-              <span class="menu-icon">
+                <a class="nav-link" href="/dokumentation">
+            <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
-              </span>
+            </span>
                     <span class="menu-title">Dokumentation</span>
                 </a>
             </li>
@@ -173,7 +188,7 @@
                             <div class="dropdown-divider"></div>
 
                             <!-- Show User Profile -->
-                            <a style="height: 40px;" class="dropdown-item preview-item" href="">
+                            <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('profile', Auth::user()->id) }}">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon menu-icon rounded-circle">
                                         <i class="mdi mdi-account-circle text-primary"></i>
@@ -187,7 +202,7 @@
                             <div class="dropdown-divider"></div>
 
                             <!-- Show User Permission -->
-                            <a style="height: 40px;" class="dropdown-item preview-item" href="">
+                            <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('show_roles', \Spatie\Permission\Models\Role::where('name' , '=' , Auth::user()->role_name)->first()) }}">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon menu-icon rounded-circle">
                                         <i class="mdi mdi-shield-outline text-info"></i>
@@ -201,7 +216,7 @@
                             <div class="dropdown-divider"></div>
 
                             <!-- Edit User Button -->
-                            <a style="height: 40px;" class="dropdown-item preview-item" href="">
+                            <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('edit_user', Auth::user()->id) }}">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon menu-icon rounded-circle">
                                         <i class="mdi mdi-account-box-outline text-success"></i>

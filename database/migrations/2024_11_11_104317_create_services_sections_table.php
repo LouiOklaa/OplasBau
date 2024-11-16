@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 999);
             $table->text('note')->nullable();
+            $table->string('created_by');
             $table->timestamps();
         });
     }

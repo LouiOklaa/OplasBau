@@ -10,6 +10,7 @@
         transition: background-color 0.3s ease;
         padding-left: 10px;
         padding-right: 10px;
+        border-radius: 20px;
     }
 
     .paginator-container {

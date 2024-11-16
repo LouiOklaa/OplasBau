@@ -2,11 +2,8 @@
 
 namespace App\Listeners;
 
-use Illuminate\Support\Facades\Log;
 use App\Models\EmailLog;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Events\MessageSent;
-use Illuminate\Queue\InteractsWithQueue;
 
 class LogEmailSent
 {
@@ -31,13 +28,36 @@ class LogEmailSent
             $toName = $data['name'] ?? 'no-name';
             $toMessage = $data['message'] ?? 'no-message';
 
-            // تسجيل بيانات البريد الإلكتروني في قاعدة البيانات
-            EmailLog::create([
-                'name' => $toName,
-                'email' => $toEmail,
-                'message' => $toMessage,
-                'sent_at' => now(),
-            ]);
+            //Check if there is a previous history of this email
+            $emailLog = EmailLog::where('email', $toEmail)->first();
+
+            // If there is a previous record, add the message to it, if not, create a new record
+            if ($emailLog) {
+                // Update existing record (add the new message to the array)
+                $messages = $emailLog->message ?? [];
+                $messages[] = [
+                    'content' => $toMessage,
+                    'timestamp' => now()->toDateTimeString(),
+                ];
+
+                // Update messages in the database
+                $emailLog->update([
+                    'message' => $messages,
+                ]);
+            } else {
+                // If there is no record, create a new record
+                EmailLog::create([
+                    'name' => $toName,
+                    'email' => $toEmail,
+                    'message' => [
+                        [
+                            'content' => $toMessage,
+                            'timestamp' => now()->toDateTimeString(),
+                        ],
+                    ],
+                    'sent_at' => now(),
+                ]);
+            }
         }
     }
 

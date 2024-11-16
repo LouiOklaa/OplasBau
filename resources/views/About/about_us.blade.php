@@ -18,9 +18,9 @@
                 <div class="col-lg-7">
                     <h2>Unser Engagement für Bauqualität und Zuverlässigkeit</h2>
                     <div class="our-story">
-                        <h4>Gegründet 2023</h4>
+                        <h4>Gegründet 2024</h4>
                         <h3>Unsere Geschichte</h3>
-                        <p>Die Firma wurde im Jahr 2023 gegründet, um ein Symbol für Innovation und Zuverlässigkeit im Bauwesen zu sein. Von Anfang an war unser Ziel nicht nur Bau zu arbeiten, sondern auch Träume wahr werden zu lassen.</p>
+                        <p>Die Firma wurde im Jahr 2024 gegründet, um ein Symbol für Innovation und Zuverlässigkeit im Bauwesen zu sein. Von Anfang an war unser Ziel nicht nur Bau zu arbeiten, sondern auch Träume wahr werden zu lassen.</p>
                         <ul>
                             <li><i class="bi bi-check-circle"></i> <span> Wir bieten maßgeschneiderte Bau-Lösungen.</span></li>
                             <li><i class="bi bi-check-circle"></i> <span>Wir garantieren hohe Qualität in jeder Projektphase.</span></li>

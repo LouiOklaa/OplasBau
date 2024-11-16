@@ -12,5 +12,6 @@ class ServicesSections extends Model
     protected $fillable = [
         'name',
         'note',
+        'created_by',
     ];
 }

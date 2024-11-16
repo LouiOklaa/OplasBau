@@ -100,8 +100,7 @@
       </div>
       <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
       <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -406,22 +405,10 @@
                    data-portfolio-sort="original-order">
 
                   <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
-                      <li data-filter="*" class="filter-active">All</li>
+                      <!-- Start Projects Filters -->
                       @php
                           $displayedProjectsSections = [];
-                      @endphp
-                      @foreach($projects as $project)
-                          @if (!in_array($project->section_name, $displayedProjectsSections))
-                              <li data-filter=".filter-{{ \Str::slug($project->section_name) }}">{{ $project->section_name }}</li>
-                              @php
-                                  $displayedProjectsSections[] = $project->section_name;
-                              @endphp
-                          @endif
-                      @endforeach
-                  </ul><!-- End Projects Filters -->
-
-                  <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                      @php
+                          $isFirstSection = true;
                           $sectionProjects = [];
                       @endphp
                       @foreach($projects as $project)
@@ -432,10 +419,30 @@
                               }
                               $sectionProjects[$sectionKey][] = $project;
                           @endphp
-                      @endforeach
 
+                          @if (!in_array($project->section_name, $displayedProjectsSections))
+                              <li data-filter=".filter-{{ \Str::slug($project->section_name) }}" class="{{ $isFirstSection ? 'filter-active' : '' }}">
+                                  {{ $project->section_name }}
+                              </li>
+                              @php
+                                  $displayedProjectsSections[] = $project->section_name;
+                                  $isFirstSection = false;
+                              @endphp
+                          @endif
+                      @endforeach
+                  </ul>
+                  <!-- End Projects Filters -->
+
+                  <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                      {{-- Show the first 6 items of each section when the page loads--}}
                       @foreach($sectionProjects as $sectionKey => $projects)
-                          @foreach(array_slice($projects, 0, 6) as $project)
+                          @php
+                              // Save the first 6 elements of each section into a variable
+                               $displayedProjects = array_slice($projects, 0, 6);
+                          @endphp
+
+                          {{-- View Projects --}}
+                          @foreach($displayedProjects as $project)
                                   <?php $mediaExtensions = pathinfo("Attachments/Galerie/$project->media", PATHINFO_EXTENSION) ?>
                               <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $sectionKey }}">
                                   <div class="portfolio-content h-100">
@@ -455,7 +462,8 @@
                               </div>
                           @endforeach
                       @endforeach
-                  </div><!-- End Projects Container -->
+                  </div>
+                  <!-- End Projects Container -->
 
               </div>
               <br>
@@ -467,7 +475,7 @@
       </section><!-- End Our Projects Section -->
 
 
-    <!-- ======= Testimonials Section ======= -->
+      <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -679,6 +687,7 @@
   <!-- Template Main JS File -->
   <script src="{{ URL::asset('assets/frontend/js/main.js') }}"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- Script Sent Email --}}
   <script>
     $(document).ready(function() {
         $('#contact-form').on('submit', function(event) {
@@ -732,6 +741,60 @@
         });
     });
   </script>
+
+{{-- Script to activate the filter when loading the page and switching sections --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const activeFilter = document.querySelector('.portfolio-flters .filter-active');
+
+        // Activate the active filter for the first section when the page loads
+        if (activeFilter) {
+            const filterClass = activeFilter.getAttribute('data-filter');
+            const filterItems = document.querySelectorAll('.portfolio-item');
+
+            // Activate the first filter correctly
+            filterItems.forEach(item => {
+                if (item.classList.contains(filterClass.replace('.', ''))) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Handle pressure on filters
+        const filters = document.querySelectorAll('.portfolio-flters li');
+        filters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                // Remove the active filter from all filters
+                filters.forEach(f => f.classList.remove('filter-active'));
+
+                // Add the active filter to the clicked element
+                this.classList.add('filter-active');
+
+                const filterClass = this.getAttribute('data-filter');
+                const filterItems = document.querySelectorAll('.portfolio-item');
+
+                // Hide all items
+                filterItems.forEach(item => {
+                    if (item.classList.contains(filterClass.replace('.', ''))) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Display only the first 6 elements of the activated section
+                const visibleItems = document.querySelectorAll(`${filterClass}`);
+                visibleItems.forEach((item, index) => {
+                    if (index >= 6) {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 </body>
 

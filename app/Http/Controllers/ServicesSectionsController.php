@@ -43,6 +43,7 @@ class ServicesSectionsController extends Controller
 
             'name' => $request->name,
             'note' => $request->note,
+            'created_by' => auth()->id(),
 
         ]);
 

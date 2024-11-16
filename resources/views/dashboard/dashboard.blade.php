@@ -2,6 +2,18 @@
 @section('title')
     LouiSoft Admin
 @endsection
+@section('CSS')
+    <style>
+        .preview-item:hover {
+            background-color: #2B2F3A;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+        }
+    </style>
+@endsection
 @section('contents')
     <!-- partial -->
     <div class="main-panel">
@@ -48,7 +60,7 @@
                 <div class="col-sm-4 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Abschnitte hinzugefügt</h4>
+                            <h4>Kategorien hinzugefügt</h4>
                             <div class="row">
                                 <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                     <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -86,25 +98,27 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row justify-content-between">
-                                <h4 class="card-title">Nachrichten</h4>
+                                <h4 class="card-title">Neueste Nachrichten</h4>
                                 <a href="{{route('show_all_messages')}}" class="text-muted mb-1 small">Alle anzeigen</a>
                             </div>
                             <div class="preview-list">
                                 @foreach($latestEmails as $one)
-                                    <div class="preview-item border-bottom">
-                                        <div class="preview-thumbnail">
-                                            <img src="assets/img/testimonials/testimonials-2.jpg" alt="image" class="rounded-circle"/>
-                                        </div>
-                                        <div class="preview-item-content d-flex flex-grow">
-                                            <div class="flex-grow">
-                                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                    <h6 class="preview-subject">{{$one->name}}</h6>
-                                                    <p class="text-muted text-small">{{$one->sent_at_formatted}}</p>
+                                    <a href="{{route('show_message' , $one->id)}}" class="text-decoration-none" style="color: inherit;">
+                                        <div class="preview-item border-bottom">
+                                            <div class="preview-thumbnail">
+                                                <img src="assets/img/testimonials/testimonials-2.jpg" alt="image" class="rounded-circle"/>
+                                            </div>
+                                            <div class="preview-item-content d-flex flex-grow">
+                                                <div class="flex-grow">
+                                                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                                        <h6 class="preview-subject">{{$one->name}}</h6>
+                                                        <p class="text-muted text-small">{{$one->sent_at_formatted}}</p>
+                                                    </div>
+                                                    <p class="text-muted">{{$one->email}}</p>
                                                 </div>
-                                                <p class="text-muted">{{$one->email}}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 @endforeach
                             </div>
                         </div>
