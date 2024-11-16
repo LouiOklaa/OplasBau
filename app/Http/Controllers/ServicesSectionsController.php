@@ -35,8 +35,8 @@ class ServicesSectionsController extends Controller
 
         ],[
 
-            'name.required' =>'Bitte geben Sie den Abschnitt name ein',
-            'name.unique' =>'Der Abschnitt name ist bereits registriert',
+            'name.required' =>'Bitte geben Sie die Kategorie name ein',
+            'name.unique' =>'Die Kategorie name ist bereits registriert',
 
         ]);
         ServicesSections::create([
@@ -47,8 +47,8 @@ class ServicesSectionsController extends Controller
 
         ]);
 
-        session()->flash('Add' , 'Der Abschnitt wurde erfolgreich hinzugefügt');
-        return redirect("/abschnitte");
+        session()->flash('Add' , 'Die Kategorie wurde erfolgreich hinzugefügt');
+        return redirect("/kategorien");
     }
 
     /**
@@ -80,8 +80,8 @@ class ServicesSectionsController extends Controller
 
         ],[
 
-            'name.required' =>'Bitte geben Sie den abschnitt name ein',
-            'name.unique' =>'Der abschnitt name ist bereits registriert',
+            'name.required' =>'Bitte geben Sie die Kategorie name ein',
+            'name.unique' =>'Die Kategorie name ist bereits registriert',
 
         ]);
 
@@ -91,8 +91,8 @@ class ServicesSectionsController extends Controller
             'note' => $request->note,
         ]);
 
-        session()->flash('Edit','Der Abschnitt wurde erflogreich geändert');
-        return redirect('/abschnitte');
+        session()->flash('Edit','Die Kategorie wurde erfolgreich geändert');
+        return redirect('/kategorien');
     }
 
     /**
@@ -103,7 +103,7 @@ class ServicesSectionsController extends Controller
         $id = $request->id;
         ServicesSections::find($id)->delete();
 
-        session()->flash('Delete','Der Abschnitt wurde erflogreich gelöscht');
-        return redirect('/abschnitte');
+        session()->flash('Delete','Die Kategorie wurde erfolgreich gelöscht');
+        return redirect('/kategorien');
     }
 }

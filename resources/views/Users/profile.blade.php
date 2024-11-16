@@ -131,7 +131,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-9">
-                                                <h5 class="text-left text-size">Hinzugefügte Dienste </h5>
+                                                <h5 class="text-left text-size">Hinzugefügte Dienste</h5>
                                                 <h4 class="text-muted font-weight-normal text-left">{{number_format($servicesCount)}}</h4>
                                             </div>
                                             <div class="col-3">
@@ -148,7 +148,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-9">
-                                                <h5 class="text-left text-size">Projekte hinzugefügt</h5>
+                                                <h5 class="text-left text-size">Hinzugefügte Projekte</h5>
                                                 <h4 class="text-muted font-weight-normal text-left">{{number_format($projectsCount)}}</h4>
                                             </div>
                                             <div class="col-3">
@@ -165,7 +165,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-9">
-                                                <h5 class="text-left" style="font-size: 12px">Kategorien hinzugefügt</h5>
+                                                <h5 class="text-left" style="font-size: 12px">Hinzugefügte Kategorien</h5>
                                                 <h4 class="text-muted font-weight-normal text-left">{{number_format($servicesSectionsCount)}}</h4>
                                             </div>
                                             <div class="col-3">
@@ -200,7 +200,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-9">
-                                                <h5 class="text-left text-size">Berechtigungen erteilt</h5>
+                                                <h5 class="text-left text-size">Erteilt Berechtigungen</h5>
                                                 <h4 class="text-muted font-weight-normal text-left">{{number_format(\Spatie\Permission\Models\Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")->where("role_has_permissions.role_id",$user->id)->count())}}</h4>
                                             </div>
                                             <div class="col-3">
@@ -217,7 +217,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-9">
-                                                <h5 class="text-left text-size">Benutzerberechtigung</h5>
+                                                <h5 class="text-left text-size">Benutzerrolle</h5>
                                                 <h4 class="text-muted font-weight-normal text-left">{{$user->role_name}}</h4>
                                             </div>
                                             <div class="col-3">

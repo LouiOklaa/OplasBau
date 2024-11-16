@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Abschnitte
+    Kategorien
 @endsection
 @section('contents')
 
@@ -80,7 +80,7 @@
                             <div class="add-btn">
                                 <button style="height: 30px" type="button"
                                         class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
-                                        href="#add_modal" data-toggle="modal">Abschnitt Hinzufügen
+                                        href="#add_modal" data-toggle="modal">Kategorie Hinzufügen
                                 </button>
                             </div>
                             <div class="table-responsive">
@@ -88,7 +88,7 @@
                                     <thead>
                                     <tr>
                                         <th> #</th>
-                                        <th>Abschnitt Name</th>
+                                        <th>Kategorie Name</th>
                                         <th>Beschreibung</th>
                                         <th>Aktion</th>
                                     </tr>
@@ -126,17 +126,17 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content modal-content-demo">
                             <div class="modal-header">
-                                <h6 class="modal-title">Abschnitt Hinzufügen</h6>
+                                <h6 class="modal-title">Kategorie Hinzufügen</h6>
                                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                             aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{route('abschnitte.store')}}" method="post"
+                                <form action="{{route('kategorien.store')}}" method="post"
                                       autocomplete="off">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <input type="hidden" name="id" id="id" value="">
-                                        <label for="name" class="col-form-label">Abschnitte Name :</label>
+                                        <label for="name" class="col-form-label">Kategorien Name :</label>
                                         <input class="form-control" name="name" id="name" type="text"
                                                style="color: #6C7293">
                                     </div>
@@ -163,17 +163,17 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content modal-content-demo">
                             <div class="modal-header">
-                                <h4 class="modal-title">Abschnitt bearbeiten</h4>
+                                <h4 class="modal-title">Kategorie bearbeiten</h4>
                                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                             aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                                <form action="abschnitte/update" method="post" autocomplete="off">
+                                <form action="kategorien/update" method="post" autocomplete="off">
                                     {{method_field('patch')}}
                                     {{csrf_field()}}
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="name">Abschnitt Name</label>
+                                            <label for="name">Kategorie Name</label>
                                             <input type="hidden" class="form-control" id="id" name="id">
                                             <input type="text" class="form-control" id="name" name="name"
                                                    style="color: #6C7293">
@@ -204,18 +204,18 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content modal-content-demo">
                             <div class="modal-header">
-                                <h4 class="modal-title">Sind Sie sicher, dass Sie diesen Abschnitt löschen möchten
+                                <h4 class="modal-title">Sind Sie sicher, dass Sie diesen Kategorie löschen möchten
                                     ?</h4>
                                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                             aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                                <form action="abschnitte/destroy" method="post">
+                                <form action="kategorien/destroy" method="post">
                                     {{method_field('delete')}}
                                     {{csrf_field()}}
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="company_name">Abschnitt Name</label>
+                                            <label for="company_name">Kategorie Name</label>
                                             <input type="hidden" class="form-control" id="id" name="id">
                                             <input class="form-control" name="name" id="name" type="text"
                                                    style="color: #6C7293; background: #2A3038" readonly>

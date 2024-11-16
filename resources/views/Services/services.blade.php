@@ -77,7 +77,7 @@
                                     <tr>
                                         <th> #</th>
                                         <th>Name</th>
-                                        <th>Abschnitt</th>
+                                        <th>Kategorie</th>
                                         <th>Beschreibung</th>
                                         <th>Foto</th>
                                         <th>Aktion</th>
@@ -134,9 +134,9 @@
                                         <input class="form-control" name="name" id="name" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <label class="my-1 mr-2" for="section_id">Abschnitt :</label>
+                                        <label class="my-1 mr-2" for="section_id">Kategorie :</label>
                                         <select name="section_id" id="section_id" class="form-control select2">
-                                            <option value="#" selected disabled>-- Abschnitt auswählen --</option>
+                                            <option value="#" selected disabled>-- Kategorie auswählen --</option>
                                             @foreach ($sections as $one)
                                                 <option value="{{ $one->id }}">{{ $one->name }}</option>
                                             @endforeach
@@ -187,7 +187,7 @@
                                                    style="color: #6C7293" required>
                                         </div>
                                         <div class="form-group">
-                                            <label class="my-1 mr-2" for="section_name">Abschnitt :</label>
+                                            <label class="my-1 mr-2" for="section_name">Kategorie :</label>
                                             <select name="section_name" id="section_name" class="form-control">
                                                 @foreach ($sections as $one)
                                                     <option> {{$one->name}} </option>

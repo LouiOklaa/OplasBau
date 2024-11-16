@@ -139,7 +139,7 @@ class GalleryController extends Controller
             $request->media->move(public_path('Attachments/Galerie'), $file_name);
         }
 
-        session()->flash('Edit' , 'Des Projekt wurde erflogreich geänderts');
+        session()->flash('Edit' , 'Des Projekt wurde erfolgreich geändert');
         return back();
     }
 
@@ -155,7 +155,7 @@ class GalleryController extends Controller
 
         Storage::disk('public_gallery')->delete($media);
 
-        session()->flash('Delete','Das Projekt wurde erflogreich gelöscht');
+        session()->flash('Delete','Das Projekt wurde erfolgreich gelöscht');
         return back();
     }
 }

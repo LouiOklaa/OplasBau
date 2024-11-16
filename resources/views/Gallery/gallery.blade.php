@@ -89,7 +89,7 @@
                                                     </figcaption>
                                                 </figure>
                                             </a>
-                                          <p>  <span style="color: #6C7293">Abschnitt : </span>{{ $one->section_name }}</p>
+                                          <p>  <span style="color: #6C7293">Kategorie : </span>{{ $one->section_name }}</p>
                                         </div>
                                         <br>
                                         <div class="text-center" style="margin-bottom: 10px;">
@@ -161,9 +161,9 @@
                                                        style="color: #6C7293">
                                             </div>
                                             <div class="form-group">
-                                                <label class="my-1 mr-2" for="section_id">Abschnitt :</label>
+                                                <label class="my-1 mr-2" for="section_id">Kategorie :</label>
                                                 <select name="section_id" id="section_id" class="form-control select2">
-                                                    <option value="#" selected disabled>-- Abschnitt auswählen --</option>
+                                                    <option value="#" selected disabled>-- Kategorie auswählen --</option>
                                                     @foreach ($sections as $one)
                                                         <option value="{{ $one->id }}">{{ $one->name }}</option>
                                                     @endforeach
@@ -217,7 +217,7 @@
                                                            style="color: #6C7293">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="my-1 mr-2" for="section_name">Abschnitt :</label>
+                                                    <label class="my-1 mr-2" for="section_name">Kategorie :</label>
                                                     <select name="section_name" id="section_name" class="form-control">
                                                         @foreach ($sections as $one)
                                                             <option> {{$one->name}} </option>

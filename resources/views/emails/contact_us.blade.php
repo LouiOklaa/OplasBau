@@ -8,7 +8,7 @@
 @section('contents')
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" style="margin-top: -70px">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
             <div class="row gy-4">

@@ -5,12 +5,11 @@
 @section('CSS')
     <style>
         .preview-item:hover {
-            background-color: #2B2F3A;
+            background-color: #16181b;
             cursor: pointer;
             transition: background-color 0.3s ease;
             padding-left: 10px;
             padding-right: 10px;
-            border-radius: 20px;
         }
     </style>
 @endsection
@@ -22,7 +21,7 @@
                 <div class="col-sm-4 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Dienste hinzugefügt</h4>
+                            <h4>Hinzugefügte Dienste</h4>
                             <div class="row">
                                 <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                     <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -41,7 +40,7 @@
                 <div class="col-sm-4 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Projekte hinzugefügt</h4>
+                            <h4>Hinzugefügte Projekte</h4>
                             <div class="row">
                                 <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                     <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -60,7 +59,7 @@
                 <div class="col-sm-4 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Kategorien hinzugefügt</h4>
+                            <h4>Hinzugefügte Kategorien</h4>
                             <div class="row">
                                 <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                     <div class="d-flex d-sm-block d-md-flex align-items-center">
@@ -136,9 +135,9 @@
                 const activityChart = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Dienste', 'Projekte', 'Abschnitte'],
+                        labels: ['Dienste', 'Projekte', 'Kategorien'],
                         datasets: [{
-                            label: 'Anzahl der Aktivitäten',
+                            label: 'Anzahl der Aktivitäten ',
                             data: [{{ $servicesCount }}, {{ $projectsCount }}, {{ $servicesSectionsCount }}],
                             backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
                             borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],

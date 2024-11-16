@@ -127,7 +127,7 @@ class ServicesController extends Controller
             $request->image->move(public_path('Attachments/Services'), $file_name);
         }
 
-        session()->flash('Edit','Des Dienstleistungen wurde erflogreich geänderts');
+        session()->flash('Edit','Des Dienstleistungen wurde erfolgreich geändert');
         return redirect('/dienstleistungen');
     }
 
@@ -142,7 +142,7 @@ class ServicesController extends Controller
 
         Storage::disk('public_services')->delete($image);
 
-        session()->flash('Delete','Das Dienstleistungen wurde erflogreich gelöscht');
+        session()->flash('Delete','Das Dienstleistungen wurde erfolgreich gelöscht');
         return back();
     }
 }

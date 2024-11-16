@@ -105,11 +105,11 @@
             </li>
 
             <li class="nav-item menu-items">
-                <a class="nav-link" href="/abschnitte">
+                <a class="nav-link" href="/kategorien">
             <span class="menu-icon">
                 <i class="mdi mdi-format-list-bulleted-type"></i>
             </span>
-                    <span class="menu-title">Abschnitte</span>
+                    <span class="menu-title">Kategorien</span>
                 </a>
             </li>
 
@@ -168,6 +168,8 @@
                             <span class="avatar country-Flag mr-0 align-self-center bg-transparent"><img src="{{URL::asset('assets/images/icons/palestine_flag.png')}}" alt="img"></span>
                         </div>
                     </li>
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <!-- Smaller profile picture for opening dropdown -->

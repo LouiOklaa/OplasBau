@@ -12,8 +12,8 @@ class EmailLog extends Model
     protected $fillable = ['name', 'email', 'message', 'sent_at', 'replies'];
 
     protected $casts = [
-        'message' => 'array', // تخزين الرسائل كمصفوفة
-        'replies' => 'array', // تحديد الحقل كمصفوفة JSON
+        'message' => 'array',
+        'replies' => 'array',
     ];
 
 

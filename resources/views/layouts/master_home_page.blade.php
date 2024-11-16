@@ -81,7 +81,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{asset(url("/assets/img/breadcrumbs-bg.jpg"))}})">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/Attachments/Home_Page/<?php echo $information->img4; ?>')">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>@yield('current_page')</h2>

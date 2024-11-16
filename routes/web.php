@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [HomeController::class, 'index']);
     Route::resource('galerie', GalleryController::class);
     Route::resource('dienstleistungen', ServicesController::class);
-    Route::resource('abschnitte', ServicesSectionsController::class);
+    Route::resource('kategorien', ServicesSectionsController::class);
     Route::resource('allgemeineinformationen', GeneralInformationController::class);
     Route::get('/alle_nachrichten', [MessagesController::class, 'index'])->name('show_all_messages');
     Route::get('/nachricht/{id}', [MessagesController::class, 'viewMessage'])->name('show_message');

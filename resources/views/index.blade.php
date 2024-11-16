@@ -96,10 +96,11 @@
 
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 
-      <div class="carousel-item active" style="background-image: url(assets/img/hero-carousel/hero-carousel-1.jpg)">
+      <div class="carousel-item active" style="background-image: url('/Attachments/Home_Page/<?php echo $information->img1; ?>')">
       </div>
-      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
+      <div class="carousel-item" style="background-image: url('/Attachments/Home_Page/<?php echo $information->img2; ?>')"></div>
+      <div class="carousel-item" style="background-image: url('/Attachments/Home_Page/<?php echo $information->img3; ?>')"></div>
+
 
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
