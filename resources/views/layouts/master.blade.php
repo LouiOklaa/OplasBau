@@ -68,6 +68,7 @@
             <li class="nav-item nav-category">
                 <span class="nav-link">Hauptmenü</span>
             </li>
+            @can('Armaturenbrett')
             <li class="nav-item menu-items">
                 <a class="nav-link" href="/admin">
             <span class="menu-icon">
@@ -76,7 +77,8 @@
                     <span class="menu-title">Armaturenbrett</span>
                 </a>
             </li>
-
+            @endcan
+            @can('AllgemeineInformationen')
             <li class="nav-item menu-items">
                 <a class="nav-link" href="/allgemeineinformationen">
             <span class="menu-icon">
@@ -85,7 +87,8 @@
                     <span class="menu-title">Allg. Informationen</span>
                 </a>
             </li>
-
+            @endcan
+            @can('Dienste')
             <li class="nav-item menu-items">
                 <a class="nav-link" href="/dienstleistungen">
             <span class="menu-icon">
@@ -94,7 +97,8 @@
                     <span class="menu-title">Dienstleistungen</span>
                 </a>
             </li>
-
+            @endcan
+            @can('Galerie')
             <li class="nav-item menu-items">
                 <a class="nav-link" href="/galerie">
             <span class="menu-icon">
@@ -103,7 +107,8 @@
                     <span class="menu-title">Galerie</span>
                 </a>
             </li>
-
+            @endcan
+            @can('Kategorien')
             <li class="nav-item menu-items">
                 <a class="nav-link" href="/kategorien">
             <span class="menu-icon">
@@ -112,7 +117,8 @@
                     <span class="menu-title">Kategorien</span>
                 </a>
             </li>
-
+            @endcan
+            @can('AlleNachrichtenAnzeigen')
             <li class="nav-item menu-items">
                 <a class="nav-link" href="/alle_nachrichten">
             <span class="menu-icon">
@@ -121,7 +127,8 @@
                     <span class="menu-title">Nachrichten</span>
                 </a>
             </li>
-
+            @endcan
+            @can('Einstellungen')
             <li class="nav-item menu-items">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic-E" aria-expanded="false" aria-controls="ui-basic-E">
             <span class="menu-icon">
@@ -132,12 +139,16 @@
                 </a>
                 <div class="collapse" id="ui-basic-E">
                     <ul class="nav flex-column sub-menu">
+                        @can('Benutzer')
                         <li class="nav-item"> <a class="nav-link" href="/benutzer">Benutzer</a></li>
+                        @endcan
+                        @can('BenutzerRollen')
                         <li class="nav-item"> <a class="nav-link" href="/rollen">Benutzerrollen</a></li>
+                        @endcan
                     </ul>
                 </div>
             </li>
-
+            @endcan
             <li class="nav-item menu-items">
                 <a class="nav-link" href="/dokumentation">
             <span class="menu-icon">
@@ -202,7 +213,7 @@
                             </a>
 
                             <div class="dropdown-divider"></div>
-
+                            @can('RollenAnzeigen')
                             <!-- Show User Permission -->
                             <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('show_roles', \Spatie\Permission\Models\Role::where('name' , '=' , Auth::user()->role_name)->first()) }}">
                                 <div class="preview-thumbnail">
@@ -216,7 +227,8 @@
                             </a>
 
                             <div class="dropdown-divider"></div>
-
+                            @endcan
+                            @can('BenutzerBearbeiten')
                             <!-- Edit User Button -->
                             <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('edit_user', Auth::user()->id) }}">
                                 <div class="preview-thumbnail">
@@ -230,6 +242,7 @@
                             </a>
 
                             <div class="dropdown-divider"></div>
+                            @endcan
 
                             <!-- Logout Button -->
                             <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

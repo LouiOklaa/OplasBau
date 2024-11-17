@@ -18,6 +18,7 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
+                @can('Statistiken')
                 <div class="col-sm-4 grid-margin">
                     <div class="card">
                         <div class="card-body">
@@ -76,7 +77,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card">
@@ -93,16 +93,20 @@
                         </div>
                     </div>
                 </div>
+                @endcan
+                @can('AlleNachrichtenAnzeigen')
                 <div class="col-md-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row justify-content-between">
                                 <h4 class="card-title">Neueste Nachrichten</h4>
+                                @can('AlleNachrichtenAnzeigen')
                                 <a href="{{route('show_all_messages')}}" class="text-muted mb-1 small">Alle anzeigen</a>
+                                @endcan
                             </div>
                             <div class="preview-list">
                                 @foreach($latestEmails as $one)
-                                    <a href="{{route('show_message' , $one->id)}}" class="text-decoration-none" style="color: inherit;">
+                                    <a @can('Nachricht') href="{{route('show_message' , $one->id)}}" @endcan class="text-decoration-none" style="color: inherit;">
                                         <div class="preview-item border-bottom">
                                             <div class="preview-thumbnail">
                                                 <img src="assets/img/testimonials/testimonials-2.jpg" alt="image" class="rounded-circle"/>
@@ -123,6 +127,7 @@
                         </div>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
         <!-- content-wrapper ends -->

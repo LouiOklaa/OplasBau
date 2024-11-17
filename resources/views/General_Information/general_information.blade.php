@@ -58,6 +58,7 @@
                                 <li class="list-inline-item">E</li>
                                 <li class="list-inline-item">N</li>
                             </ul>
+                            @can('AllgemeineInformationenBearbeiten')
                             <div class="edit_modal">
                                 <button style="height: 30px" type="button"
                                         class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
@@ -71,6 +72,7 @@
                                     Informationen Bearbeiten
                                 </button>
                             </div>
+                            @endcan
                             <br>
                             <form class="forms-sample">
                                 <div class="form-group">

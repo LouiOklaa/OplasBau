@@ -77,12 +77,14 @@
                                 <li class="list-inline-item">T</li>
                                 <li class="list-inline-item">E</li>
                             </ul>
+                            @can('KategorienHinzufügen')
                             <div class="add-btn">
                                 <button style="height: 30px" type="button"
                                         class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
                                         href="#add_modal" data-toggle="modal">Kategorie Hinzufügen
                                 </button>
                             </div>
+                            @endcan
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -102,15 +104,19 @@
                                             <td>{{$one->name}}</td>
                                             <td>{{$one->note}}</td>
                                             <td>
+                                                @can('KategorienBearbeite')
                                                 <button class="btn btn-sm btn-rounded btn-inverse-primary"
                                                         href="#edit_modal" title="Edit" data-id="{{$one->id}}"
                                                         data-name="{{$one->name}}" data-note="{{$one->note}}"
                                                         data-toggle="modal">Bearbeiten
                                                 </button>
+                                                @endcan
+                                                @can('KategorienLöschen')
                                                 <button class="btn btn-sm btn-rounded btn-inverse-danger" title="Delete"
                                                         href="#delete_modal" data-id="{{$one->id}}"
                                                         data-name="{{$one->name}}" data-toggle="modal">Löschen
                                                 </button>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

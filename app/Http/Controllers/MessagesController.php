@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Mail;
 
 class MessagesController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:AlleNachrichtenAnzeigen|Nachricht|NachrichtSenden', ['only' => ['index']]);
+        $this->middleware('permission:Nachricht|NachrichtSenden', ['only' => ['viewMessage']]);
+        $this->middleware('permission:NachrichtSenden', ['only' => ['replyMessage']]);
+    }
+
     public function index()
     {
         $latestEmails = EmailLog::orderBy('created_at', 'desc')->paginate(12);

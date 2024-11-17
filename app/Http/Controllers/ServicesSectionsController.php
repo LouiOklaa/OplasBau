@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class ServicesSectionsController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Dienste|DiensteHinzufügen|DiensteBearbeiten|DiensteLöschen', ['only' => ['index']]);
+        $this->middleware('permission:DiensteHinzufügen', ['only' => ['store']]);
+        $this->middleware('permission:DiensteBearbeiten', ['only' => ['update']]);
+        $this->middleware('permission:DiensteLöschen', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

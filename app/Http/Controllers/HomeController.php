@@ -18,7 +18,10 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:Armaturenbrett|Statistiken', ['only' => ['index']]);
+
     }
+
 
     /**
      * Show the application dashboard.

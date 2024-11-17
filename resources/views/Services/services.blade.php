@@ -65,12 +65,14 @@
                                 <li class="list-inline-item">E</li>
                                 <li class="list-inline-item">N</li>
                             </ul>
+                            @can('DiensteHinzufügen')
                             <div class="add-btn">
                                 <button style="height: 30px" type="button"
                                         class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
                                         href="#add_modal" data-toggle="modal">Dienstleistungen Hinzufügen
                                 </button>
                             </div>
+                            @endcan
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -96,16 +98,20 @@
                                                             src="Attachments/Services/{{$one->image}}"
                                                             style="height:30px; width:50px; border-radius: 0;"></a></td>
                                             <td>
+                                                @can('DiensteBearbeiten')
                                                 <button class="btn btn-sm btn-rounded btn-inverse-primary"
                                                         href="#edit_modal" title="Edit" data-id="{{$one->id}}"
                                                         data-name="{{$one->name}}"
                                                         data-section_name="{{$one->section_name}}" data-note="{{$one->note}}"
                                                         data-toggle="modal">Bearbeiten
                                                 </button>
+                                                @endcan
+                                                @can('DiensteLöschen')
                                                 <button class="btn btn-sm btn-rounded btn-inverse-danger" title="Delete"
                                                         href="#delete_modal" data-id="{{$one->id}}"
                                                         data-name="{{$one->name}}" data-toggle="modal">Löschen
                                                 </button>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

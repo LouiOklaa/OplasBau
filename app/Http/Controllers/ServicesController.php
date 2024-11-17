@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ServicesController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:Kategorien|KategorienHinzufügen|KategorienBearbeite|KategorienLöschen', ['only' => ['index']]);
+        $this->middleware('permission:KategorienHinzufügen', ['only' => ['store']]);
+        $this->middleware('permission:KategorienBearbeite', ['only' => ['update']]);
+        $this->middleware('permission:KategorienLöschen', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

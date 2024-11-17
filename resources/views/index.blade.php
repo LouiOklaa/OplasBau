@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                    <div id="error-message"></div>
+                    <div id="error-message" style="color: red;"></div>
                     <div id="success-message" style="color: var(--color-primary); font-weight: bolder"></div>
                   <button type="submit" id="submit-btn">Senden</button>
                 </div>

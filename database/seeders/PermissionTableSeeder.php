@@ -52,6 +52,7 @@ class PermissionTableSeeder extends Seeder
 
             'AlleNachrichtenAnzeigen',
             'Nachricht',
+            'NachrichtSenden',
 
             'Dokumentation',
 
