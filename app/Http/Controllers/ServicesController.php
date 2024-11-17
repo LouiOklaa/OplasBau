@@ -50,7 +50,7 @@ class ServicesController extends Controller
         ],[
 
             'name.required' =>'Bitte geben Sie den Handynamen ein',
-            'section_id.required' =>'Bitte wählen Sie den Abschnitt aus',
+            'section_id.required' =>'Bitte wählen Sie die Kategorie aus',
             'image.required' =>'Bitte geben Sie den Foto an',
 
 
@@ -106,7 +106,7 @@ class ServicesController extends Controller
         ], [
 
 
-            'section_name.required' => 'Bitte wählen Sie den Abschnitt aus',
+            'section_name.required' => 'Bitte wählen Sie die Kategorie aus',
 
         ]);
 

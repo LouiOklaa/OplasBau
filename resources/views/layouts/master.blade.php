@@ -200,6 +200,7 @@
 
                             <div class="dropdown-divider"></div>
 
+                            @can('ProfilAnzeigen')
                             <!-- Show User Profile -->
                             <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('profile', Auth::user()->id) }}">
                                 <div class="preview-thumbnail">
@@ -213,6 +214,8 @@
                             </a>
 
                             <div class="dropdown-divider"></div>
+                            @endcan
+
                             @can('RollenAnzeigen')
                             <!-- Show User Permission -->
                             <a style="height: 40px;" class="dropdown-item preview-item" href="{{ route('show_roles', \Spatie\Permission\Models\Role::where('name' , '=' , Auth::user()->role_name)->first()) }}">

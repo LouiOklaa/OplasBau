@@ -54,7 +54,7 @@ class GalleryController extends Controller
             'media.file' =>'Die Datei muss ein Foto oder Video sein',
             'media.mimes' =>'Die Datei muss vom Typ jpeg,png,jpg,mp4,mov,mkv sein',
             'media.max' =>'Die Datei darf nicht größer als 25 Megabytes sein.',
-            'section_id.required' =>'Bitte wählen Sie den Abschnitt aus',
+            'section_id.required' =>'Bitte wählen Sie die Kategorie aus',
 
         ]);
 
@@ -117,7 +117,7 @@ class GalleryController extends Controller
             'media.file' =>'Die Datei muss ein Foto oder Video sein',
             'media.mimes' =>'Die Datei muss vom Typ jpeg,png,jpg,mp4,mov,mkv sein',
             'media.max' =>'Die Datei darf nicht größer als 25 Megabytes sein.',
-            'section_name.required' => 'Bitte wählen Sie den Abschnitt aus',
+            'section_name.required' => 'Bitte wählen Sie die Kategorie aus',
 
         ]);
 

@@ -200,7 +200,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-9">
-                                                <h5 class="text-left text-size">Erteilt Berechtigungen</h5>
+                                                <h5 class="text-left text-size" style="font-size: 12px">Erteilte Berechtigungen</h5>
                                                 <h4 class="text-muted font-weight-normal text-left">{{number_format(\Spatie\Permission\Models\Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")->where("role_has_permissions.role_id",$user->id)->count())}}</h4>
                                             </div>
                                             <div class="col-3">
