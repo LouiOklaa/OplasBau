@@ -55,20 +55,29 @@
                         <li class="list-inline-item">E</li>
                     </ul>
                     @can('InGalerieHinzufügen')
-                    <div class="add-btn">
-                        <button style="height: 30px" type="button"
-                                class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded" href="#add_modal"
-                                data-toggle="modal">Hinzufügen
-                        </button>
-                    </div>
+                        <div class="add-btn">
+                            <button style="height: 30px" type="button"
+                                    class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
+                                    href="#add_modal"
+                                    data-toggle="modal">Hinzufügen
+                            </button>
+                        </div>
                     @endcan
                     <br>
                     <div class="showing shop-results-text">
-                        Anzeigen von @if($projects->firstItem()==0)0 @else {{ $projects->firstItem() }} @endif bis @if($projects->lastItem()==0) 0 @else {{ $projects->lastItem() }} @endif von {{ $projects->total() }} gesamt
+                        Anzeigen von @if($projects->firstItem()==0)
+                            0
+                        @else
+                            {{ $projects->firstItem() }}
+                        @endif bis @if($projects->lastItem()==0)
+                            0
+                        @else
+                            {{ $projects->lastItem() }}
+                        @endif von {{ $projects->total() }} gesamt
                     </div>
                     <div class="gallery">
                         <div class="row">
-                            <?php $i = 0 ?>
+                                <?php $i = 0 ?>
                             @foreach($projects as $one)
                                 <div class="col-md-4">
                                     <div class="card">
@@ -91,20 +100,26 @@
                                                     </figcaption>
                                                 </figure>
                                             </a>
-                                          <p>  <span style="color: #6C7293">Kategorie : </span>{{ $one->section_name }}</p>
+                                            <p><span style="color: #6C7293">Kategorie : </span>{{ $one->section_name }}
+                                            </p>
                                         </div>
                                         <br>
                                         <div class="text-center" style="margin-bottom: 10px;">
                                             @can('InGalerieBearbeiten')
-                                            <button class="btn btn-sm btn-rounded btn-inverse-primary" href="#edit_modal" title="Edit"
-                                                    data-id="{{ $one->id }}" data-name="{{ $one->name }}" data-section_name="{{$one->section_name}}" data-note="{{ $one->note }}"
-                                                    data-toggle="modal">Bearbeiten
-                                            </button>
+                                                <button class="btn btn-sm btn-rounded btn-inverse-primary"
+                                                        href="#edit_modal" title="Edit"
+                                                        data-id="{{ $one->id }}" data-name="{{ $one->name }}"
+                                                        data-section_name="{{$one->section_name}}"
+                                                        data-note="{{ $one->note }}"
+                                                        data-toggle="modal">Bearbeiten
+                                                </button>
                                             @endcan
                                             @can('InGalerieLöschen')
-                                            <button class="btn btn-sm btn-rounded btn-inverse-danger" href="#delete_modal" title="Delete"
-                                                    data-id="{{ $one->id }}" data-name="{{ $one->name }}" data-toggle="modal">Löschen
-                                            </button>
+                                                <button class="btn btn-sm btn-rounded btn-inverse-danger"
+                                                        href="#delete_modal" title="Delete"
+                                                        data-id="{{ $one->id }}" data-name="{{ $one->name }}"
+                                                        data-toggle="modal">Löschen
+                                                </button>
                                             @endcan
                                         </div>
                                     </div>
@@ -117,7 +132,8 @@
                                 @if ($projects->onFirstPage())
                                     <span class="previous disabled"><i class="fas fa-angle-left" aria-hidden="true"></i></span>
                                 @else
-                                    <a href="{{ $projects->previousPageUrl() }}" class="previous"><i class="fas fa-angle-left" aria-hidden="true"></i></a>
+                                    <a href="{{ $projects->previousPageUrl() }}" class="previous"><i
+                                            class="fas fa-angle-left" aria-hidden="true"></i></a>
                                 @endif
 
                                 {{-- Loop through available pages --}}
@@ -140,9 +156,11 @@
 
                                 {{-- Link to Next Page --}}
                                 @if ($projects->hasMorePages())
-                                    <a href="{{ $projects->nextPageUrl() }}" class="next"><i class="fas fa-angle-right" aria-hidden="true"></i></a>
+                                    <a href="{{ $projects->nextPageUrl() }}" class="next"><i class="fas fa-angle-right"
+                                                                                             aria-hidden="true"></i></a>
                                 @else
-                                    <span class="next disabled"><i class="fas fa-angle-right" aria-hidden="true"></i></span>
+                                    <span class="next disabled"><i class="fas fa-angle-right"
+                                                                   aria-hidden="true"></i></span>
                                 @endif
                             </div>
                         </div>
@@ -169,7 +187,8 @@
                                             <div class="form-group">
                                                 <label class="my-1 mr-2" for="section_id">Kategorie :</label>
                                                 <select name="section_id" id="section_id" class="form-control select2">
-                                                    <option value="#" selected disabled>-- Kategorie auswählen --</option>
+                                                    <option value="#" selected disabled>-- Kategorie auswählen --
+                                                    </option>
                                                     @foreach ($sections as $one)
                                                         <option value="{{ $one->id }}">{{ $one->name }}</option>
                                                     @endforeach
@@ -307,12 +326,14 @@
                 justify-content: center;
                 margin-top: 20px;
             }
+
             .paginator {
                 display: inline-flex;
                 align-items: center;
                 gap: 4px;
                 font-size: 0.8rem;
             }
+
             .paginator a, .paginator span {
                 padding: 6px 10px;
                 margin: 0 2px;
@@ -321,19 +342,23 @@
                 color: #6C7293;
                 transition: all 0.3s;
             }
+
             .paginator a:hover {
                 background-color: #007bff;
                 color: white;
             }
+
             .paginator .active {
                 background-color: #007bff;
                 color: white;
                 font-weight: bold;
             }
+
             .paginator .disabled {
                 color: #ccc;
                 cursor: not-allowed;
             }
+
             .paginator .previous,
             .paginator .next {
                 color: #007BFF;
@@ -344,24 +369,29 @@
                 justify-content: center;
                 border-radius: 5px;
             }
+
             .paginator .previous:after {
                 content: "<";
                 font-weight: bold;
             }
+
             .paginator .next:after {
                 content: ">";
                 font-weight: bold;
             }
+
             .paginator .previous:hover,
             .paginator .next:hover {
                 color: white;
                 background-color: #007bff;
             }
+
             .paginator .ellipsis {
                 padding: 6px 8px;
                 color: #6C7293;
                 font-weight: bold;
             }
+
             .paginator .ellipsis {
                 padding: 6px 8px;
                 color: #6C7293;

@@ -27,14 +27,16 @@
             </div>
 
             <div class="col-auto showing text-left">
-                Anzeigen von {{ $projects->firstItem() ?: 0 }} bis {{ $projects->lastItem() ?: 0 }} von {{ $projects->total() }} gesamt
+                Anzeigen von {{ $projects->firstItem() ?: 0 }} bis {{ $projects->lastItem() ?: 0 }}
+                von {{ $projects->total() }} gesamt
             </div>
         </div>
     </form>
 
     <section id="projects" class="projects">
         <div class="container" data-aos="fade-up">
-            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                 data-portfolio-sort="original-order">
                 <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
                     @if(count($projects) !== 0)
                         @include('Gallery.partials_projects_list')
@@ -54,7 +56,8 @@
                 @if ($projects->onFirstPage())
                     <li class="disabled"><span><i class="fas fa-angle-left" aria-hidden="true"></i></span></li>
                 @else
-                    <li><a href="{{ $projects->previousPageUrl() }}"><i class="fas fa-angle-left" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $projects->previousPageUrl() }}"><i class="fas fa-angle-left"
+                                                                        aria-hidden="true"></i></a></li>
                 @endif
 
                 @for ($i = 1; $i <= $projects->lastPage(); $i++)
@@ -66,7 +69,9 @@
                 @endfor
 
                 @if ($projects->hasMorePages())
-                    <li><a href="{{ $projects->nextPageUrl() }}"><i class="fas fa-angle-right" style="color: var(--color-primary);" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $projects->nextPageUrl() }}"><i class="fas fa-angle-right"
+                                                                    style="color: var(--color-primary);"
+                                                                    aria-hidden="true"></i></a></li>
                 @else
                     <li class="disabled"><span><i class="fas fa-angle-right" aria-hidden="true"></i></span></li>
                 @endif

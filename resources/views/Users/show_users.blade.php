@@ -99,12 +99,12 @@
                                 <li class="list-inline-item">R</li>
                             </ul>
                             @can('BenutzerHinzufügen')
-                            <div class="add-btn">
-                                <button style="height: 30px" type="button"
-                                        class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
-                                        href="#add_modal" data-toggle="modal">Benutzer hinzufügen
-                                </button>
-                            </div>
+                                <div class="add-btn">
+                                    <button style="height: 30px" type="button"
+                                            class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
+                                            href="#add_modal" data-toggle="modal">Benutzer hinzufügen
+                                    </button>
+                                </div>
                             @endcan
                             <div class="table-responsive">
                                 <table class="table">
@@ -119,7 +119,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $i = 0 ?>
+                                        <?php $i = 0 ?>
                                     @foreach ($data as $key => $user)
                                             <?php $i++ ?>
                                         <tr>
@@ -144,27 +144,29 @@
                                             <td>
                                                 @if (!empty($user->getRoleNames()))
                                                     @foreach ($user->getRoleNames() as $v)
-                                                        <span class="btn btn-sm btn-rounded btn-dark-gradient">{{ $v }}</span>
+                                                        <span
+                                                            class="btn btn-sm btn-rounded btn-dark-gradient">{{ $v }}</span>
                                                     @endforeach
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($user->role_name !== 'Owner')
                                                     @can('BenutzerBearbeiten')
-                                                    <button class="btn btn-sm btn-rounded btn-inverse-primary"
-                                                            href="#edit_modal" title="Edit" data-id="{{$user->id}}"
-                                                            data-name="{{$user->name}}"
-                                                            data-email="{{$user->email}}"
-                                                            data-role_name="{{$user->role_name}}"
-                                                            data-status="{{$user->status}}"
-                                                            data-toggle="modal">Bearbeiten
-                                                    </button>
+                                                        <button class="btn btn-sm btn-rounded btn-inverse-primary"
+                                                                href="#edit_modal" title="Edit" data-id="{{$user->id}}"
+                                                                data-name="{{$user->name}}"
+                                                                data-email="{{$user->email}}"
+                                                                data-role_name="{{$user->role_name}}"
+                                                                data-status="{{$user->status}}"
+                                                                data-toggle="modal">Bearbeiten
+                                                        </button>
                                                     @endcan
                                                     @can('BenutzerLöschen')
-                                                    <button class="btn btn-sm btn-rounded btn-inverse-danger" title="Delete"
-                                                            href="#delete_modal" data-id="{{$user->id}}"
-                                                            data-name="{{$user->name}}" data-toggle="modal">Löschen
-                                                    </button>
+                                                        <button class="btn btn-sm btn-rounded btn-inverse-danger"
+                                                                title="Delete"
+                                                                href="#delete_modal" data-id="{{$user->id}}"
+                                                                data-name="{{$user->name}}" data-toggle="modal">Löschen
+                                                        </button>
                                                     @endcan
                                                 @endif
                                             </td>
@@ -256,7 +258,8 @@
                                                     :</label>
                                                 <div class="col-sm-9">
                                                     <select name="status" id="status" class="form-control select2">
-                                                        <option value="#" selected disabled>-- Benutzerstatus auswählen --
+                                                        <option value="#" selected disabled>-- Benutzerstatus auswählen
+                                                            --
                                                         </option>
                                                         <option value="Active">Aktive</option>
                                                         <option value="Inactive">Inaktiv</option>

@@ -2,16 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>@yield("title")</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>@yield("title")</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="{{ URL::asset('assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ URL::asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +41,7 @@
         <div class="logo-container d-flex align-items-center">
             <a href="{{url('/')}}" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{{ URL::asset('assets/img/logo.svg') }}" alt="" class="logo-img">
+                <img src="{{ URL::asset('assets/img/logo.png') }}" alt="OPLAS BAU" class="logo-img">
             </a>
         </div>
 
@@ -57,7 +56,9 @@
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             @foreach($services as $x)
-                                <li><a href="{{ route('show_services', ['section_name' => urlencode(str_replace(' ', '-', $x))]) }}">{{$x}}</a></li>
+                                <li>
+                                    <a href="{{ route('show_services', ['section_name' => urlencode(str_replace(' ', '-', $x))]) }}">{{$x}}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -65,7 +66,9 @@
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             @foreach($projects as $one)
-                                <li><a href="{{ route('show_projects', ['section_name' => urlencode(str_replace(' ', '-', $one))]) }}">{{$one}}</a></li>
+                                <li>
+                                    <a href="{{ route('show_projects', ['section_name' => urlencode(str_replace(' ', '-', $one))]) }}">{{$one}}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -78,36 +81,37 @@
     </div>
 </header><!-- End Header -->
 
-  <main id="main">
+<main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/Attachments/Home_Page/<?php echo $information->img4; ?>')">
-      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <div class="breadcrumbs d-flex align-items-center"
+         style="background-image: url('/Attachments/Home_Page/<?php echo $information->img4; ?>')">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-        <h2>@yield('current_page')</h2>
-          <ol>
-              <li><a href="{{ url('/') }}">Start Seite</a></li>
-              @hasSection('current_page')
-                  <li>@yield('current_page')</li>
-              @endif
-              @hasSection('service_name')
-                  <li>@yield('service_name')</li>
-              @endif
+            <h2>@yield('current_page')</h2>
+            <ol>
+                <li><a href="{{ url('/') }}">Start Seite</a></li>
+                @hasSection('current_page')
+                    <li>@yield('current_page')</li>
+                @endif
+                @hasSection('service_name')
+                    <li>@yield('service_name')</li>
+                @endif
 
-          </ol>
-      </div>
+            </ol>
+        </div>
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-          @yield('contents')
+            @yield('contents')
 
-      </div>
+        </div>
     </section><!-- End Blog Section -->
 
-  </main><!-- End #main -->
+</main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
@@ -120,7 +124,8 @@
                     <div class="footer-info">
                         <a href="{{url('/')}}">
                             <!-- Uncomment the line below if you also wish to use an image logo -->
-                            <img src="{{ URL::asset('assets/img/logo.png') }}" alt="Oplas Bau" style="max-height: 130px;">
+                            <img src="{{ URL::asset('assets/img/logo-footer.png') }}" alt="OPLAS BAU"
+                                 style="max-height: 130px;">
                         </a>
                     </div>
                 </div><!-- End footer info column-->
@@ -143,10 +148,14 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>SOZIALE MEDIEN</h4>
                     <div class="social-links d-flex mt-3">
-                        <a href="https://wa.me/{{$information->phone_number}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
-                        <a href="{{$information->facebook_link}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                        <a href="{{$information->instagram_link}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                        <a href="{{$information->tiktok_link}}" class="d-flex align-items-center justify-content-center"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://wa.me/{{$information->phone_number}}"
+                           class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+                        <a href="{{$information->facebook_link}}"
+                           class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                        <a href="{{$information->instagram_link}}"
+                           class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                        <a href="{{$information->tiktok_link}}"
+                           class="d-flex align-items-center justify-content-center"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div><!-- End footer links column-->
 
@@ -176,8 +185,10 @@
                 <a href="https://www.instagram.com/loui_oklaa/" class="fab fa-instagram"></a>
                 <a href="https://wa.me/+4917670352663" class="fab fa-whatsapp"></a>
                 <a href="https://x.com/loui_oklaa">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16" style="margin-bottom: 3px">
-                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                         class="bi bi-twitter-x" viewBox="0 0 16 16" style="margin-bottom: 3px">
+                        <path
+                            d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
                     </svg>
                 </a>
             </div>
@@ -227,7 +238,7 @@
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
-            body: JSON.stringify({ sort: sortValue, page: page , sectionName: sectionName,})
+            body: JSON.stringify({sort: sortValue, page: page, sectionName: sectionName,})
         })
             .then(response => response.json())
             .then(data => {
@@ -260,7 +271,7 @@
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
-            body: JSON.stringify({ sort: sortValue, page: page })
+            body: JSON.stringify({sort: sortValue, page: page})
         })
             .then(response => response.json())
             .then(data => {
@@ -336,7 +347,7 @@
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
-            body: JSON.stringify({ sort: sortValue, page: page , sectionName: sectionName,})
+            body: JSON.stringify({sort: sortValue, page: page, sectionName: sectionName,})
         })
             .then(response => response.json())
             .then(data => {
@@ -369,7 +380,7 @@
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
-            body: JSON.stringify({ sort: sortValue, page: page })
+            body: JSON.stringify({sort: sortValue, page: page})
         })
             .then(response => response.json())
             .then(data => {

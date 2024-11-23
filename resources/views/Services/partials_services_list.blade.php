@@ -10,9 +10,10 @@
             <div class="post-content d-flex flex-column">
                 <h3 class="post-title">{{$one->name}}</h3>
                 @if(Route::currentRouteName() == 'all_services' || Route::currentRouteName() == 'sort_all_services')
-                <div class="meta d-flex align-items-center">
+                    <div class="meta d-flex align-items-center">
                         <div class="d-flex align-items-center">
-                            <span class="ps-2" style="color: var(--color-primary); font-weight: bold">{{$one->section_name}}</span>
+                            <span class="ps-2"
+                                  style="color: var(--color-primary); font-weight: bold">{{$one->section_name}}</span>
                         </div>
                     </div>
                 @endif

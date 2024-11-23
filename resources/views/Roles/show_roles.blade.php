@@ -66,12 +66,12 @@
                                 <li class="list-inline-item">N</li>
                             </ul>
                             @can('RollenHinzufügen')
-                            <div class="add-btn">
-                                <a style="height: 30px; display: flex; justify-content: center; align-items: center; text-align: center; padding: 5px 15px;"
-                                        class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
-                                        href="{{ route('add_roles') }}">Rollen hinzufügen
-                                </a>
-                            </div>
+                                <div class="add-btn">
+                                    <a style="height: 30px; display: flex; justify-content: center; align-items: center; text-align: center; padding: 5px 15px;"
+                                       class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
+                                       href="{{ route('add_roles') }}">Rollen hinzufügen
+                                    </a>
+                                </div>
                             @endcan
                             <div class="table-responsive">
                                 <table class="table">
@@ -83,7 +83,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $i = 0 ?>
+                                        <?php $i = 0 ?>
                                     @foreach ($roles as $key => $role)
                                             <?php $i++ ?>
                                         <tr>
@@ -91,21 +91,23 @@
                                             <td>{{$role->name}}</td>
                                             <td>
                                                 @can('AlleRollenAnzeigen')
-                                                <a class="btn btn-sm btn-rounded btn-inverse-warning"
-                                                        href="{{ route('show_roles' , $role->id)}}" title="Anzeigen">Anzeigen
-                                                </a>
+                                                    <a class="btn btn-sm btn-rounded btn-inverse-warning"
+                                                       href="{{ route('show_roles' , $role->id)}}" title="Anzeigen">Anzeigen
+                                                    </a>
                                                 @endcan
                                                 @if ($role->name !== 'Owner')
                                                     @can('RollenBearbeiten')
-                                                    <a class="btn btn-sm btn-rounded btn-inverse-primary"
-                                                            href="{{ route('edit_roles' , $role->id)}}" title="Bearbeiten">Bearbeiten
-                                                    </a>
+                                                        <a class="btn btn-sm btn-rounded btn-inverse-primary"
+                                                           href="{{ route('edit_roles' , $role->id)}}"
+                                                           title="Bearbeiten">Bearbeiten
+                                                        </a>
                                                     @endcan
                                                     @can('RollenLöschen')
-                                                    <button class="btn btn-sm btn-rounded btn-inverse-danger" title="Löschen"
-                                                            href="#delete_modal" data-id="{{$role->id}}"
-                                                            data-name="{{$role->name}}" data-toggle="modal">Löschen
-                                                    </button>
+                                                        <button class="btn btn-sm btn-rounded btn-inverse-danger"
+                                                                title="Löschen"
+                                                                href="#delete_modal" data-id="{{$role->id}}"
+                                                                data-name="{{$role->name}}" data-toggle="modal">Löschen
+                                                        </button>
                                                     @endcan
                                                 @endif
                                             </td>
@@ -159,17 +161,17 @@
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
 
-@endsection
-@section('JS')
-        {{--  Delete Modal Script  --}}
-        <script>
-            $('#delete_modal').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget)
-                var id = button.data('id')
-                var name = button.data('name')
-                var modal = $(this)
-                modal.find('.modal-body #id').val(id);
-                modal.find('.modal-body #name').val(name);
-            })
-        </script>
+        @endsection
+        @section('JS')
+            {{--  Delete Modal Script  --}}
+            <script>
+                $('#delete_modal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget)
+                    var id = button.data('id')
+                    var name = button.data('name')
+                    var modal = $(this)
+                    modal.find('.modal-body #id').val(id);
+                    modal.find('.modal-body #name').val(name);
+                })
+            </script>
 @endsection

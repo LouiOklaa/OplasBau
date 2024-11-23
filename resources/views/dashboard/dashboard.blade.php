@@ -19,63 +19,66 @@
         <div class="content-wrapper">
             <div class="row">
                 @can('Statistiken')
-                <div class="col-sm-4 grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4>Hinzugefügte Dienste</h4>
-                            <div class="row">
-                                <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                    <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                        <h3 class="mb-0">{{number_format($servicesCount)}}</h3>
-                                        <p class="text-success ms-2 mb-0 font-weight-medium"><span style="color: #00D25B; font-size: 25px">&nbsp ↗</span></p>
+                    <div class="col-sm-4 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Hinzugefügte Dienste</h4>
+                                <div class="row">
+                                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                            <h3 class="mb-0">{{number_format($servicesCount)}}</h3>
+                                            <p class="text-success ms-2 mb-0 font-weight-medium"><span
+                                                    style="color: #00D25B; font-size: 25px">&nbsp ↗</span></p>
+                                        </div>
+                                        <h6 class="text-muted font-weight-normal">Gesamtzahl</h6>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal">Gesamtzahl</h6>
-                                </div>
-                                <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                    <i class="icon-lg mdi mdi-library-books text-primary ms-auto"></i>
+                                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                                        <i class="icon-lg mdi mdi-library-books text-primary ms-auto"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-4 grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4>Hinzugefügte Projekte</h4>
-                            <div class="row">
-                                <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                    <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                        <h3 class="mb-0">{{number_format($projectsCount)}}</h3>
-                                        <p class="text-success ms-2 mb-0 font-weight-medium"><span style="color: #00D25B; font-size: 25px">&nbsp ↗</span></p>
+                    <div class="col-sm-4 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Hinzugefügte Projekte</h4>
+                                <div class="row">
+                                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                            <h3 class="mb-0">{{number_format($projectsCount)}}</h3>
+                                            <p class="text-success ms-2 mb-0 font-weight-medium"><span
+                                                    style="color: #00D25B; font-size: 25px">&nbsp ↗</span></p>
+                                        </div>
+                                        <h6 class="text-muted font-weight-normal">Gesamtzahl</h6>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal">Gesamtzahl</h6>
-                                </div>
-                                <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                    <i class="icon-lg mdi mdi-collage text-info ms-auto"></i>
+                                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                                        <i class="icon-lg mdi mdi-collage text-info ms-auto"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-4 grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4>Hinzugefügte Kategorien</h4>
-                            <div class="row">
-                                <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                    <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                        <h3 class="mb-0">{{number_format($servicesSectionsCount )}}</h3>
-                                        <p class="text-success ms-2 mb-0 font-weight-medium"><span style="color: #00D25B; font-size: 25px">&nbsp ↗</span></p>
+                    <div class="col-sm-4 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Hinzugefügte Kategorien</h4>
+                                <div class="row">
+                                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                            <h3 class="mb-0">{{number_format($servicesSectionsCount )}}</h3>
+                                            <p class="text-success ms-2 mb-0 font-weight-medium"><span
+                                                    style="color: #00D25B; font-size: 25px">&nbsp ↗</span></p>
+                                        </div>
+                                        <h6 class="text-muted font-weight-normal">Gesamtzahl</h6>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal">Gesamtzahl</h6>
-                                </div>
-                                <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                    <i class="icon-lg mdi mdi-format-list-bulleted-type text-success ms-auto"></i>
+                                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                                        <i class="icon-lg mdi mdi-format-list-bulleted-type text-success ms-auto"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             <div class="row">
                 <div class="col-md-4 grid-margin stretch-card">
@@ -95,44 +98,48 @@
                 </div>
                 @endcan
                 @can('AlleNachrichtenAnzeigen')
-                <div class="col-md-8 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-row justify-content-between">
-                                <h4 class="card-title">Neueste Nachrichten</h4>
-                                @can('AlleNachrichtenAnzeigen')
-                                <a href="{{route('show_all_messages')}}" class="text-muted mb-1 small">Alle anzeigen</a>
-                                @endcan
-                            </div>
-                            <div class="preview-list">
-                                @foreach($latestEmails as $one)
-                                    <a @can('Nachricht') href="{{route('show_message' , $one->id)}}" @endcan class="text-decoration-none" style="color: inherit;">
-                                        <div class="preview-item border-bottom">
-                                            <div class="preview-thumbnail">
-                                                <img src="assets/img/testimonials/testimonials-2.jpg" alt="image" class="rounded-circle"/>
-                                            </div>
-                                            <div class="preview-item-content d-flex flex-grow">
-                                                <div class="flex-grow">
-                                                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                        <h6 class="preview-subject">{{$one->name}}</h6>
-                                                        <p class="text-muted text-small">{{$one->sent_at_formatted}}</p>
+                    <div class="col-md-8 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-row justify-content-between">
+                                    <h4 class="card-title">Neueste Nachrichten</h4>
+                                    @can('AlleNachrichtenAnzeigen')
+                                        <a href="{{route('show_all_messages')}}" class="text-muted mb-1 small">Alle
+                                            anzeigen</a>
+                                    @endcan
+                                </div>
+                                <div class="preview-list">
+                                    @foreach($latestEmails as $one)
+                                        <a @can('Nachricht') href="{{route('show_message' , $one->id)}}"
+                                           @endcan class="text-decoration-none" style="color: inherit;">
+                                            <div class="preview-item border-bottom">
+                                                <div class="preview-thumbnail">
+                                                    <img src="assets/img/testimonials/testimonials-2.jpg" alt="image"
+                                                         class="rounded-circle"/>
+                                                </div>
+                                                <div class="preview-item-content d-flex flex-grow">
+                                                    <div class="flex-grow">
+                                                        <div
+                                                            class="d-flex d-md-block d-xl-flex justify-content-between">
+                                                            <h6 class="preview-subject">{{$one->name}}</h6>
+                                                            <p class="text-muted text-small">{{$one->sent_at_formatted}}</p>
+                                                        </div>
+                                                        <p class="text-muted">{{$one->email}}</p>
                                                     </div>
-                                                    <p class="text-muted">{{$one->email}}</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                @endforeach
+                                        </a>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endcan
             </div>
         </div>
         <!-- content-wrapper ends -->
-@endsection
-@section('JS')
+        @endsection
+        @section('JS')
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>

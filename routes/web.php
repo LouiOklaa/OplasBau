@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/alle_nachrichten', [MessagesController::class, 'index'])->name('show_all_messages');
     Route::get('/nachricht/{id}', [MessagesController::class, 'viewMessage'])->name('show_message');
     Route::post('/nachricht/{id}/reply', [MessagesController::class, 'replyMessage'])->name('admin_replyMessage');
+    Route::get('/markiere_alles_als_gelesen', [MessagesController::class, 'markAllAsRead'])->name('markAllAsRead');
     Route::get('/rollen/hinzufügen', [RoleController::class, 'create'])->name('add_roles');
     Route::get('/rollen/anzeigen/{id}', [RoleController::class, 'show'])->name('show_roles');
     Route::get('/rollen/bearbeiten/{id}', [RoleController::class, 'edit'])->name('edit_roles');
@@ -48,8 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/benutzer/bearbeiten/{id}', [UserController::class, 'edit'])->name('edit_user');
     Route::get('/benutzer/profil/{id}', [UserController::class, 'profile'])->name('profile');
     Route::resource('benutzer',UserController::class);
-
-
 
 });
 

@@ -60,12 +60,12 @@
                                 <li class="list-inline-item">N</li>
                             </ul>
                             @can('KategorienHinzufügen')
-                            <div class="add-btn">
-                                <button style="height: 30px" type="button"
-                                        class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
-                                        href="#add_modal" data-toggle="modal">Kategorie Hinzufügen
-                                </button>
-                            </div>
+                                <div class="add-btn">
+                                    <button style="height: 30px" type="button"
+                                            class="btn btn-inverse-primary btn-fw embed-responsive btn-rounded"
+                                            href="#add_modal" data-toggle="modal">Kategorie Hinzufügen
+                                    </button>
+                                </div>
                             @endcan
                             <div class="table-responsive">
                                 <table class="table">
@@ -78,7 +78,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $i = 0 ?>
+                                        <?php $i = 0 ?>
                                     @foreach($sections as $one)
                                             <?php $i++ ?>
                                         <tr>
@@ -87,17 +87,18 @@
                                             <td>{{$one->note}}</td>
                                             <td>
                                                 @can('KategorienBearbeite')
-                                                <button class="btn btn-sm btn-rounded btn-inverse-primary"
-                                                        href="#edit_modal" title="Edit" data-id="{{$one->id}}"
-                                                        data-name="{{$one->name}}" data-note="{{$one->note}}"
-                                                        data-toggle="modal">Bearbeiten
-                                                </button>
+                                                    <button class="btn btn-sm btn-rounded btn-inverse-primary"
+                                                            href="#edit_modal" title="Edit" data-id="{{$one->id}}"
+                                                            data-name="{{$one->name}}" data-note="{{$one->note}}"
+                                                            data-toggle="modal">Bearbeiten
+                                                    </button>
                                                 @endcan
                                                 @can('KategorienLöschen')
-                                                <button class="btn btn-sm btn-rounded btn-inverse-danger" title="Delete"
-                                                        href="#delete_modal" data-id="{{$one->id}}"
-                                                        data-name="{{$one->name}}" data-toggle="modal">Löschen
-                                                </button>
+                                                    <button class="btn btn-sm btn-rounded btn-inverse-danger"
+                                                            title="Delete"
+                                                            href="#delete_modal" data-id="{{$one->id}}"
+                                                            data-name="{{$one->name}}" data-toggle="modal">Löschen
+                                                    </button>
                                                 @endcan
                                             </td>
                                         </tr>
@@ -116,7 +117,7 @@
                             <div class="modal-header">
                                 <h6 class="modal-title">Kategorie Hinzufügen</h6>
                                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
-                                            aria-hidden="true">&times;</span></button>
+                                        aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <form action="{{route('kategorien.store')}}" method="post"
@@ -153,7 +154,7 @@
                             <div class="modal-header">
                                 <h4 class="modal-title">Kategorie bearbeiten</h4>
                                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
-                                            aria-hidden="true">&times;</span></button>
+                                        aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <form action="kategorien/update" method="post" autocomplete="off">
@@ -195,7 +196,7 @@
                                 <h4 class="modal-title">Sind Sie sicher, dass Sie diesen Kategorie löschen möchten
                                     ?</h4>
                                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
-                                            aria-hidden="true">&times;</span></button>
+                                        aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <form action="kategorien/destroy" method="post">

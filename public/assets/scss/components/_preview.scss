@@ -5,7 +5,7 @@
     @include display-flex;
     @include flex-direction(row);
     @include align-items(flex-start);
-    padding: 1rem 0rem;
+    padding: 0rem 0rem;
     font-size: .875rem;
     &:last-child {
       border-bottom: 0;

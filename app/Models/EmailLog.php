@@ -9,11 +9,12 @@ use Illuminate\Support\Carbon;
 class EmailLog extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'email', 'message', 'sent_at', 'replies'];
+    protected $fillable = ['name', 'email', 'message', 'sent_at', 'replies' , 'is_notified'];
 
     protected $casts = [
         'message' => 'array',
         'replies' => 'array',
+        'is_notified' => 'boolean',
     ];
 
 
@@ -24,7 +25,7 @@ class EmailLog extends Model
 
         return Carbon::parse($this->attributes['sent_at'])
             ->timezone('Europe/Berlin')
-            ->translatedFormat('d/m/y : H:i');
+            ->translatedFormat('d.m.y/H:i');
     }
 
 }

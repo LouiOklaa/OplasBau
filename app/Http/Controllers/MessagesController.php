@@ -51,6 +51,8 @@ class MessagesController extends Controller
             ];
         }
 
+        $emailLog->update(['is_notified' => true]);
+
         // Arrange the conversation by time
         usort($conversation, function ($a, $b) {
             return strtotime($a['timestamp']) - strtotime($b['timestamp']);
@@ -77,6 +79,14 @@ class MessagesController extends Controller
         Mail::to($emailLog->email)->send(new ReplyMail($emailLog->name, $request->input('reply')));
 
         return redirect()->back()->with('success', 'Die Antwort wurde erfolgreich gesendet');
+    }
+
+    public function markAllAsRead()
+    {
+
+        EmailLog::where('is_notified', false)->update(['is_notified' => true]);
+
+        return back();
     }
 
 }

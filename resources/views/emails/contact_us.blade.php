@@ -47,21 +47,26 @@
                 </div><!-- End Google Maps -->
 
                 <div class="col-lg-6">
-                    <form id="contact-form" action="{{ route('send_email') }}" method="post" role="form" class="php-email-form">
+                    <form id="contact-form" action="{{ route('send_email') }}" method="post" role="form"
+                          class="php-email-form">
                         @csrf
                         <div class="row gy-4">
                             <div class="col-lg-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Name" required>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Name"
+                                       required>
                             </div>
                             <div class="col-lg-6 form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail"
+                                       required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Telefonnummer" required>
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Telefonnummer"
+                                   required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Ihr Nachricht" required></textarea>
+                            <textarea class="form-control" name="message" rows="5" placeholder="Ihr Nachricht"
+                                      required></textarea>
                         </div>
                         <div class="my-3">
                             <div id="error-message" style="color: red"></div>
@@ -80,8 +85,8 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-            $(document).ready(function() {
-                $('#contact-form').on('submit', function(event) {
+            $(document).ready(function () {
+                $('#contact-form').on('submit', function (event) {
                     event.preventDefault(); // Prevent page reload
 
                     // Hide success and error messages initially
@@ -95,13 +100,13 @@
                         url: $(this).attr('action'),
                         method: 'POST',
                         data: $(this).serialize(),
-                        success: function(response) {
+                        success: function (response) {
                             // Check if the response contains success and show success message if available
                             if (response.success) {
                                 $('#success-message').text(response.success).fadeIn();
 
                                 // Hide the success message after 5 seconds
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     $('#success-message').fadeOut();
                                 }, 4000);
 
@@ -112,7 +117,7 @@
                                 $('#submit-btn').hide();
 
                                 // Re-enable and show the submit button after 5 seconds
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     $('#submit-btn').show(); // Show the button again
                                     $('#submit-btn').prop('disabled', false); // Re-enable the button
                                 }, 5000);
@@ -121,7 +126,7 @@
                                 $('#error-message').text('Beim Senden der Nachricht ist ein Fehler aufgetreten.').fadeIn();
                             }
                         },
-                        error: function(xhr) {
+                        error: function (xhr) {
                             // Show error message if there's an issue with the request
                             $('#error-message').text('Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.').fadeIn();
 

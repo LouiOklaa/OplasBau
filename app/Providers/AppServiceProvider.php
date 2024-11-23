@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\EmailLog;
 use App\Models\Gallery;
 use App\Models\GeneralInformation;
 use App\Models\Services;
@@ -37,5 +38,15 @@ class AppServiceProvider extends ServiceProvider
                 'projects' => $projects,
             ]);
         });
+
+        View::composer('layouts.master', function ($view) {
+            $notifications = EmailLog::where('is_notified', false)->get();
+
+            $view->with([
+                'notifications' => $notifications,
+            ]);
+        });
     }
+
+
 }

@@ -26,7 +26,8 @@
             </div>
 
             <div class="col-auto showing text-left">
-                Anzeigen von {{ $services->firstItem() ?: 0 }} bis {{ $services->lastItem() ?: 0 }} von {{ $services->total() }} gesamt
+                Anzeigen von {{ $services->firstItem() ?: 0 }} bis {{ $services->lastItem() ?: 0 }}
+                von {{ $services->total() }} gesamt
             </div>
         </div>
     </form>
@@ -51,7 +52,8 @@
                 @if ($services->onFirstPage())
                     <li class="disabled"><span><i class="fas fa-angle-left" aria-hidden="true"></i></span></li>
                 @else
-                    <li><a href="{{ $services->previousPageUrl() }}"><i class="fas fa-angle-left" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $services->previousPageUrl() }}"><i class="fas fa-angle-left"
+                                                                        aria-hidden="true"></i></a></li>
                 @endif
 
                 @for ($i = 1; $i <= $services->lastPage(); $i++)
@@ -63,7 +65,9 @@
                 @endfor
 
                 @if ($services->hasMorePages())
-                    <li><a href="{{ $services->nextPageUrl() }}"><i class="fas fa-angle-right" style="color: var(--color-primary);" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $services->nextPageUrl() }}"><i class="fas fa-angle-right"
+                                                                    style="color: var(--color-primary);"
+                                                                    aria-hidden="true"></i></a></li>
                 @else
                     <li class="disabled"><span><i class="fas fa-angle-right" aria-hidden="true"></i></span></li>
                 @endif
