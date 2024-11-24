@@ -88,6 +88,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
+                    <br><br><br><br>
                     <h2 data-aos="fade-down"><span style="color: var(--color-primary)">Willkommen bei</span><br><span>OPLAS BAU</span>
                     </h2>
                     <p data-aos="fade-up">Ihrem Experten für hochwertige Bauleistungen!

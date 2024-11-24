@@ -3,7 +3,7 @@
     Alle Dienstleistungen
 @endsection
 @section('current_page')
-    Alle Dienstleistungen
+    Alle Dienste
 @endsection
 @section('contents')
 
