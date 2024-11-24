@@ -181,6 +181,7 @@
                             <i class="mdi mdi-fullscreen" style="font-size: 23px;"></i>
                         </a>
                     </li>
+                    @can('Benachrichtigungen')
                     <li class="nav-item dropdown border-left">
                         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                            data-toggle="dropdown">
@@ -230,6 +231,7 @@
                                     Benachrichtigungen anzeigen</a></p>
                         </div>
                     </li>
+                    @endcan
                     <li class="nav-item dropdown border-left">
                         <div class="nav-link nav-itemd-none d-md-flex">
                             <span class="avatar country-Flag mr-0 align-self-center bg-transparent"><img

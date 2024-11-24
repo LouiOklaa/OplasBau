@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/benutzer/bearbeiten/{id}', [UserController::class, 'edit'])->name('edit_user');
     Route::get('/benutzer/profil/{id}', [UserController::class, 'profile'])->name('profile');
     Route::resource('benutzer',UserController::class);
+    Route::get('/dokumentation', function () { return view('Documentation.documentation'); });
 
 });
 
