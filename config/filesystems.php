@@ -46,17 +46,17 @@ return [
 
         'public_gallery' => [
             'driver' => 'local',
-            'root'   => public_path() . '\Attachments\Galerie',
+            'root'   => public_path('Attachments/Galerie'),
         ],
 
         'public_services' => [
             'driver' => 'local',
-            'root'   => public_path() . '\Attachments\Services',
+            'root'   => public_path('Attachments/Services'),
         ],
 
         'public_home-page' => [
             'driver' => 'local',
-            'root'   => public_path() . '\Attachments\Home_Page',
+            'root'   => public_path('Attachments/Home_Page'),
         ],
 
         's3' => [
