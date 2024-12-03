@@ -21,7 +21,7 @@
   <body>
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center text-center error-page bg-info">
+        <div class="content-wrapper d-flex align-items-center text-center error-page bg-success">
           <div class="row flex-grow">
             <div class="col-lg-7 mx-auto text-white">
               <div class="row align-items-center d-flex flex-row">
@@ -40,14 +40,14 @@
               </div>
               <div class="row mt-5">
                 <div class="col-12 mt-xl-2">
-                    <div class="footer-copyrights text-center top-separator ins-md" style="font-size: 15px; font-weight: bolder;">&copy; <script>document.write(new Date().getFullYear());</script> <a href="https://www.louioklaa.com/"  style="font-weight: bolder; color: #5F3F9A">Loui Oklaa</a> Alle Rechte vorbehalten.
-                        <a style="color: #5F3F9A" href="https://github.com/LouiOklaa" class="mdi mdi-github-circle"></a>
-                        <a style="color: #5F3F9A" href="https://www.facebook.com/loui.oklaa/" class="mdi mdi-facebook"></a>
-                        <a style="color: #5F3F9A" href="https://www.linkedin.com/in/loui-oklaa/" class="mdi mdi-linkedin"></a>
-                        <a style="color: #5F3F9A" href="https://www.instagram.com/loui_oklaa/" class="mdi mdi-instagram"></a>
-                        <a style="color: #5F3F9A" href="https://wa.me/+4917670352663" class="mdi mdi-whatsapp"></a>
-                        <a style="color: #5F3F9A" href="https://x.com/loui_oklaa">
-                            <svg style="margin-bottom: 8px; color: #5F3F9A" xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <div class="footer-copyrights text-center top-separator ins-md" style="font-size: 15px; font-weight: bolder;">&copy; <script>document.write(new Date().getFullYear());</script> <a href="https://www.louioklaa.com/"  style="font-weight: bolder; color: #008C3C">Loui Oklaa</a> Alle Rechte vorbehalten.
+                        <a style="color: #008C3C" href="https://github.com/LouiOklaa" class="mdi mdi-github-circle"></a>
+                        <a style="color: #008C3C" href="https://www.facebook.com/loui.oklaa/" class="mdi mdi-facebook"></a>
+                        <a style="color: #008C3C" href="https://www.linkedin.com/in/loui-oklaa/" class="mdi mdi-linkedin"></a>
+                        <a style="color: #008C3C" href="https://www.instagram.com/loui_oklaa/" class="mdi mdi-instagram"></a>
+                        <a style="color: #008C3C" href="https://wa.me/+4917670352663" class="mdi mdi-whatsapp"></a>
+                        <a style="color: #008C3C" href="https://x.com/loui_oklaa">
+                            <svg style="margin-bottom: 8px; color: #008C3C" xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
                                 <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
                             </svg>
                         </a></div>
