@@ -20,8 +20,9 @@
 
         <p><span style="font-weight: bold;">vertreten durch den Vorstand : </span>Herr Mohamed Ismail</p><br><br>
 
-        <p><span style="font-weight: bold;">Registergericht : </span>-----</p>
-        <p><span style="font-weight: bold;">Registernummer : </span>-----</p>
+        >
+        <!-- <p><span style="font-weight: bold;">Registergericht : </span>-----</p -->
+        <!--<p><span style="font-weight: bold;">Registernummer : </span>-----</p>-->
         <p><span style="font-weight: bold;">Umsatzsteuer-Identifikationsnummer : </span>29 943 018 570</p>
 
         <br><br>
