@@ -42,14 +42,13 @@ class GalleryController extends Controller
     {
         $validatedData=$request->validate([
 
-            'name' => 'required|unique:galleries',
+            'name' => 'required',
             'media' => 'required|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,mkv|max:25600',
             'section_id' => 'required',
 
         ],[
 
             'name.required' =>'Bitte geben Sie den Projektnamen ein',
-            'name.unique' =>'Dieses Projekt existiert bereits',
             'media.required' =>'Bitte geben Sie ein Foto oder Video des Projekt eni',
             'media.file' =>'Die Datei muss ein Foto oder Video sein',
             'media.mimes' =>'Die Datei muss vom Typ jpeg,png,jpg,mp4,mov,mkv sein',
@@ -106,14 +105,13 @@ class GalleryController extends Controller
 
         $validatedData=$request->validate([
 
-            'name' => 'required|unique:galleries,name,'.$id,
+            'name' => 'required',
             'media' => 'file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,mkv|max:25600',
             'section_name' => 'required',
 
         ],[
 
             'name.required' =>'Bitte geben Sie den Projektnamen ein',
-            'name.unique' =>'Dieses Projekt existiert bereits',
             'media.file' =>'Die Datei muss ein Foto oder Video sein',
             'media.mimes' =>'Die Datei muss vom Typ jpeg,png,jpg,mp4,mov,mkv sein',
             'media.max' =>'Die Datei darf nicht größer als 25 Megabytes sein.',
