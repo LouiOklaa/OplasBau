@@ -144,7 +144,7 @@ class GalleryController extends Controller
             $request->media->move(public_path('Attachments/Galerie'), $file_name);
         }
 
-        session()->flash('Edit' , 'Des Projekt wurde erfolgreich geändert');
+        session()->flash('Edit' , 'Das Projekt wurde erfolgreich geändert');
         return back();
     }
 
